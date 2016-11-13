@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SpotifySingleton.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,20 @@
     return YES;
 }
 
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    // handler code here
+    
+    NSLog(@"%@", [url absoluteString]);
+    
+    if (url) {
+        SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
+        [sharedManager requestTokenWithDict:[self parseQueryString:[url absoluteString]].mutableCopy];
+        
+        
+    }
+    return YES;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -46,6 +61,22 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (NSDictionary *)parseQueryString:(NSString *)query {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    NSArray *pairs = [query componentsSeparatedByString:@"?"];
+    
+    for (NSString *keyValuePair in pairs)
+    {
+        NSArray *pairComponents = [keyValuePair componentsSeparatedByString:@"="];
+        NSString *key = [[pairComponents firstObject] stringByRemovingPercentEncoding];
+        NSString *value = [[pairComponents lastObject] stringByRemovingPercentEncoding];
+        
+        [dict setObject:value forKey:key];
+    }
+    return dict;
+}
+
 
 
 @end

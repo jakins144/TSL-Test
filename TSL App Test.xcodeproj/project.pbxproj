@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CB5320EEB6134992644E784 /* Pods_TSL_App_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367D4279DE4E82C6DCAD48C5 /* Pods_TSL_App_Test.framework */; };
+		EB0FC7301DD3206E0085F828 /* SpotifySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0FC72F1DD3206E0085F828 /* SpotifySingleton.m */; };
+		EB1C01831DD4D0B4009A3924 /* PlayListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1C01821DD4D0B4009A3924 /* PlayListTableViewController.m */; };
+		EB1C01861DD4D149009A3924 /* PlayListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1C01851DD4D149009A3924 /* PlayListTableViewCell.m */; };
+		EB2015061DD2592C00F5547A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2015051DD2592C00F5547A /* Constants.m */; };
+		EB275BB71DD596A300C01216 /* TrackSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB275BB61DD596A300C01216 /* TrackSearchTableViewController.m */; };
+		EB275BBA1DD5CC0B00C01216 /* ChoosePlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB275BB91DD5CC0B00C01216 /* ChoosePlaylistViewController.m */; };
+		EB275BBC1DD641E400C01216 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB275BBB1DD641E300C01216 /* AVFoundation.framework */; };
 		EB443E9C1DD12401003CA241 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB443E9B1DD12401003CA241 /* main.m */; };
 		EB443E9F1DD12401003CA241 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB443E9E1DD12401003CA241 /* AppDelegate.m */; };
 		EB443EA21DD12401003CA241 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB443EA11DD12401003CA241 /* ViewController.m */; };
@@ -15,6 +23,10 @@
 		EB443EAA1DD12401003CA241 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB443EA81DD12401003CA241 /* LaunchScreen.storyboard */; };
 		EB443EB51DD12401003CA241 /* TSL_App_TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB443EB41DD12401003CA241 /* TSL_App_TestTests.m */; };
 		EB443EC01DD12401003CA241 /* TSL_App_TestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB443EBF1DD12401003CA241 /* TSL_App_TestUITests.m */; };
+		EB443ED01DD12D2A003CA241 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = EB443ECF1DD12D2A003CA241 /* Podfile */; };
+		EBD05C371DD514A50075C4C7 /* SongTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD05C361DD514A50075C4C7 /* SongTableViewCell.m */; };
+		EBD05C3A1DD5150F0075C4C7 /* SongsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD05C391DD5150F0075C4C7 /* SongsTableViewController.m */; };
+		EBD05C3D1DD557A50075C4C7 /* SongDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD05C3C1DD557A50075C4C7 /* SongDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +47,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		367D4279DE4E82C6DCAD48C5 /* Pods_TSL_App_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSL_App_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABC8A2D205E0FEFE68D9BAB9 /* Pods-TSL App Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSL App Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSL App Test/Pods-TSL App Test.release.xcconfig"; sourceTree = "<group>"; };
+		B48E91A6280CE520F321F561 /* Pods-TSL App Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSL App Test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSL App Test/Pods-TSL App Test.debug.xcconfig"; sourceTree = "<group>"; };
+		EB0FC72E1DD3206E0085F828 /* SpotifySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifySingleton.h; sourceTree = "<group>"; };
+		EB0FC72F1DD3206E0085F828 /* SpotifySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifySingleton.m; sourceTree = "<group>"; };
+		EB1C01811DD4D0B4009A3924 /* PlayListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayListTableViewController.h; sourceTree = "<group>"; };
+		EB1C01821DD4D0B4009A3924 /* PlayListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayListTableViewController.m; sourceTree = "<group>"; };
+		EB1C01841DD4D149009A3924 /* PlayListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayListTableViewCell.h; sourceTree = "<group>"; };
+		EB1C01851DD4D149009A3924 /* PlayListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayListTableViewCell.m; sourceTree = "<group>"; };
+		EB2015041DD2592C00F5547A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		EB2015051DD2592C00F5547A /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		EB275BB51DD596A300C01216 /* TrackSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackSearchTableViewController.h; sourceTree = "<group>"; };
+		EB275BB61DD596A300C01216 /* TrackSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackSearchTableViewController.m; sourceTree = "<group>"; };
+		EB275BB81DD5CC0B00C01216 /* ChoosePlaylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePlaylistViewController.h; sourceTree = "<group>"; };
+		EB275BB91DD5CC0B00C01216 /* ChoosePlaylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePlaylistViewController.m; sourceTree = "<group>"; };
+		EB275BBB1DD641E300C01216 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EB443E971DD12401003CA241 /* TSL App Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TSL App Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB443E9B1DD12401003CA241 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB443E9D1DD12401003CA241 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +79,14 @@
 		EB443EBB1DD12401003CA241 /* TSL App TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TSL App TestUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB443EBF1DD12401003CA241 /* TSL_App_TestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSL_App_TestUITests.m; sourceTree = "<group>"; };
 		EB443EC11DD12402003CA241 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB443ECF1DD12D2A003CA241 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		EBB30C031DD3C92E00997649 /* TSL App Test-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TSL App Test-Bridging-Header.h"; sourceTree = "<group>"; };
+		EBD05C351DD514A50075C4C7 /* SongTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongTableViewCell.h; sourceTree = "<group>"; };
+		EBD05C361DD514A50075C4C7 /* SongTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongTableViewCell.m; sourceTree = "<group>"; };
+		EBD05C381DD5150F0075C4C7 /* SongsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongsTableViewController.h; sourceTree = "<group>"; };
+		EBD05C391DD5150F0075C4C7 /* SongsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongsTableViewController.m; sourceTree = "<group>"; };
+		EBD05C3B1DD557A50075C4C7 /* SongDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongDetailViewController.h; sourceTree = "<group>"; };
+		EBD05C3C1DD557A50075C4C7 /* SongDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB275BBC1DD641E400C01216 /* AVFoundation.framework in Frameworks */,
+				2CB5320EEB6134992644E784 /* Pods_TSL_App_Test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +116,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C5BA1652312351D94512E1E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB275BBB1DD641E300C01216 /* AVFoundation.framework */,
+				367D4279DE4E82C6DCAD48C5 /* Pods_TSL_App_Test.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9182EAED6DEB9079052E94FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B48E91A6280CE520F321F561 /* Pods-TSL App Test.debug.xcconfig */,
+				ABC8A2D205E0FEFE68D9BAB9 /* Pods-TSL App Test.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EB2015101DD26FF400F5547A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EBD05C351DD514A50075C4C7 /* SongTableViewCell.h */,
+				EBD05C361DD514A50075C4C7 /* SongTableViewCell.m */,
+				EB1C01841DD4D149009A3924 /* PlayListTableViewCell.h */,
+				EB1C01851DD4D149009A3924 /* PlayListTableViewCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		EB443E8E1DD12401003CA241 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +152,8 @@
 				EB443EB31DD12401003CA241 /* TSL App TestTests */,
 				EB443EBE1DD12401003CA241 /* TSL App TestUITests */,
 				EB443E981DD12401003CA241 /* Products */,
+				9182EAED6DEB9079052E94FD /* Pods */,
+				7C5BA1652312351D94512E1E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,12 +172,28 @@
 			children = (
 				EB443E9D1DD12401003CA241 /* AppDelegate.h */,
 				EB443E9E1DD12401003CA241 /* AppDelegate.m */,
-				EB443EA01DD12401003CA241 /* ViewController.h */,
 				EB443EA11DD12401003CA241 /* ViewController.m */,
+				EB443EA01DD12401003CA241 /* ViewController.h */,
+				EB2015041DD2592C00F5547A /* Constants.h */,
+				EB2015051DD2592C00F5547A /* Constants.m */,
+				EB0FC72E1DD3206E0085F828 /* SpotifySingleton.h */,
+				EB0FC72F1DD3206E0085F828 /* SpotifySingleton.m */,
+				EBB30C031DD3C92E00997649 /* TSL App Test-Bridging-Header.h */,
+				EB1C01811DD4D0B4009A3924 /* PlayListTableViewController.h */,
+				EB1C01821DD4D0B4009A3924 /* PlayListTableViewController.m */,
+				EBD05C381DD5150F0075C4C7 /* SongsTableViewController.h */,
+				EBD05C391DD5150F0075C4C7 /* SongsTableViewController.m */,
+				EBD05C3B1DD557A50075C4C7 /* SongDetailViewController.h */,
+				EBD05C3C1DD557A50075C4C7 /* SongDetailViewController.m */,
+				EB275BB51DD596A300C01216 /* TrackSearchTableViewController.h */,
+				EB275BB61DD596A300C01216 /* TrackSearchTableViewController.m */,
+				EB275BB81DD5CC0B00C01216 /* ChoosePlaylistViewController.h */,
+				EB275BB91DD5CC0B00C01216 /* ChoosePlaylistViewController.m */,
+				EB2015101DD26FF400F5547A /* Cells */,
 				EB443EA31DD12401003CA241 /* Main.storyboard */,
 				EB443EA61DD12401003CA241 /* Assets.xcassets */,
-				EB443EA81DD12401003CA241 /* LaunchScreen.storyboard */,
 				EB443EAB1DD12401003CA241 /* Info.plist */,
+				EB443EA81DD12401003CA241 /* LaunchScreen.storyboard */,
 				EB443E9A1DD12401003CA241 /* Supporting Files */,
 			);
 			path = "TSL App Test";
@@ -117,6 +202,7 @@
 		EB443E9A1DD12401003CA241 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EB443ECF1DD12D2A003CA241 /* Podfile */,
 				EB443E9B1DD12401003CA241 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -147,9 +233,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB443EC41DD12402003CA241 /* Build configuration list for PBXNativeTarget "TSL App Test" */;
 			buildPhases = (
+				0A9F12BDA3A04765C51FC5D0 /* [CP] Check Pods Manifest.lock */,
 				EB443E931DD12401003CA241 /* Sources */,
 				EB443E941DD12401003CA241 /* Frameworks */,
 				EB443E951DD12401003CA241 /* Resources */,
+				98FFF30F25C685A1F09EDDF0 /* [CP] Embed Pods Frameworks */,
+				EBCD92A117EF82B67440F0A9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -208,6 +297,7 @@
 					EB443E961DD12401003CA241 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 64JXB3XQ2N;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					EB443EAF1DD12401003CA241 = {
@@ -251,6 +341,7 @@
 			files = (
 				EB443EAA1DD12401003CA241 /* LaunchScreen.storyboard in Resources */,
 				EB443EA71DD12401003CA241 /* Assets.xcassets in Resources */,
+				EB443ED01DD12D2A003CA241 /* Podfile in Resources */,
 				EB443EA51DD12401003CA241 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,14 +362,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A9F12BDA3A04765C51FC5D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		98FFF30F25C685A1F09EDDF0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSL App Test/Pods-TSL App Test-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBCD92A117EF82B67440F0A9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSL App Test/Pods-TSL App Test-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EB443E931DD12401003CA241 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB2015061DD2592C00F5547A /* Constants.m in Sources */,
 				EB443EA21DD12401003CA241 /* ViewController.m in Sources */,
 				EB443E9F1DD12401003CA241 /* AppDelegate.m in Sources */,
 				EB443E9C1DD12401003CA241 /* main.m in Sources */,
+				EBD05C3D1DD557A50075C4C7 /* SongDetailViewController.m in Sources */,
+				EBD05C3A1DD5150F0075C4C7 /* SongsTableViewController.m in Sources */,
+				EB1C01861DD4D149009A3924 /* PlayListTableViewCell.m in Sources */,
+				EBD05C371DD514A50075C4C7 /* SongTableViewCell.m in Sources */,
+				EB275BBA1DD5CC0B00C01216 /* ChoosePlaylistViewController.m in Sources */,
+				EB1C01831DD4D0B4009A3924 /* PlayListTableViewController.m in Sources */,
+				EB0FC7301DD3206E0085F828 /* SpotifySingleton.m in Sources */,
+				EB275BB71DD596A300C01216 /* TrackSearchTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,25 +573,34 @@
 		};
 		EB443EC51DD12402003CA241 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B48E91A6280CE520F321F561 /* Pods-TSL App Test.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 64JXB3XQ2N;
 				INFOPLIST_FILE = "TSL App Test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iridescentapps.TSL-App-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TSL App Test/TSL App Test-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		EB443EC61DD12402003CA241 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABC8A2D205E0FEFE68D9BAB9 /* Pods-TSL App Test.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 64JXB3XQ2N;
 				INFOPLIST_FILE = "TSL App Test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iridescentapps.TSL-App-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TSL App Test/TSL App Test-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -516,6 +673,7 @@
 				EB443EC61DD12402003CA241 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB443EC71DD12402003CA241 /* Build configuration list for PBXNativeTarget "TSL App TestTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +682,7 @@
 				EB443EC91DD12402003CA241 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB443ECA1DD12402003CA241 /* Build configuration list for PBXNativeTarget "TSL App TestUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +691,7 @@
 				EB443ECC1DD12402003CA241 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
