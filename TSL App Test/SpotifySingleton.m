@@ -9,20 +9,31 @@
 #import "SpotifySingleton.h"
 
 
+
+
+@interface SpotifySingleton ()
+
+@property (strong,nonatomic) AFHTTPSessionManager *AFHTTPManager;
+@property (strong,nonatomic) AFURLSessionManager *AFURLManager;
+@end
+
 @implementation SpotifySingleton
+
 
 + (id)sharedManager {
     static SpotifySingleton *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
+        
     });
     return sharedMyManager;
 }
 
 - (id)init {
     if (self = [super init]) {
-        
+        self.AFHTTPManager = [AFHTTPSessionManager manager];
+        self.AFURLManager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     }
     return self;
 }
@@ -34,12 +45,7 @@
     NSString *codeForToken = [codeDict objectForKey:@"code"];
     NSString *urlString = [NSString stringWithFormat:@"%@api/token?grant_type=authorization_code&code=%@&client_id=%@&client_secret=%@&redirect_uri=tsl-app-test://", spotifyAccountsBaseURL, codeForToken, clientID, clientSecret];
     
-    
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    
-    [manager POST:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+    [self.AFHTTPManager POST:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
         self.accessToken = responseObject[@"access_token"];
@@ -66,12 +72,9 @@
     
     
     NSString *urlString = [NSString stringWithFormat:@"%@api/token?grant_type=refresh_token&refresh_token=%@&client_id=%@&client_secret=%@&redirect_uri=tsl-app-test://", spotifyAccountsBaseURL, self.refreshToken, clientID, clientSecret];
+
     
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    
-    [manager POST:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+    [self.AFHTTPManager POST:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
         self.accessToken = responseObject[@"access_token"];
@@ -109,12 +112,7 @@
 {
     NSString *urlString = [NSString stringWithFormat:@"%@v1/me?access_token=%@", spotifyBaseURL, self.accessToken];
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    //
-    
-    /////
-    
-    [manager GET:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+    [self.AFHTTPManager GET:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
         
         self.userID = responseObject[@"id"];
@@ -140,12 +138,7 @@
         
         NSString *urlString = [NSString stringWithFormat:@"%@v1/users/%@/playlists?access_token=%@", spotifyBaseURL, self.userID , self.accessToken];
         
-        
-        
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        //
-        
-        [manager GET:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        [self.AFHTTPManager GET:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
             NSLog(@"JSON: %@", responseObject);
             
             NSMutableArray *playlistArray = responseObject[@"items"];
@@ -176,13 +169,9 @@
     searchText = [searchText stringByReplacingOccurrencesOfString:@" " withString: @"+"];
     searchText = [searchText stringByReplacingOccurrencesOfString:@"\"" withString: @"\%22"];
     NSString *urlString = [NSString stringWithFormat:@"%@v1/search/?q=%@&type=track&access_token=%@", spotifyBaseURL, searchText , self.accessToken];
+
     
-    
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    
-    [manager GET:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+    [self.AFHTTPManager GET:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
         NSDictionary *searchlistDict = responseObject[@"tracks"];
@@ -208,11 +197,7 @@
 {
     NSString *urlString = [NSString stringWithFormat:@"%@?access_token=%@", stringURL, self.accessToken];
     
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    
-    [manager GET:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+    [self.AFHTTPManager GET:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
         NSMutableArray *songlistArray = responseObject[@"items"];
@@ -235,14 +220,8 @@
 -(void)addToPlayListWithTrackURI:(NSString*)stringURI andPlaylistID:(NSString*)playListID
 {
     NSString *urlString = [NSString stringWithFormat:@"%@v1/users/%@/playlists/%@/tracks?uris=%@&access_token=%@", spotifyBaseURL, self.userID, playListID, stringURI, self.accessToken];
-    
-    
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    
-    
-    [manager POST:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+
+    [self.AFHTTPManager POST:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
         self.accessToken = responseObject[@"access_token"];
@@ -273,8 +252,6 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:body options:0 error:&error];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    
     NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlString parameters:nil error:nil];
     
     req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
@@ -283,12 +260,10 @@
     [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
     
     
-    [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+    [[self.AFURLManager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         
         if (!error) {
             NSLog(@"Reply JSON: %@", responseObject);
-            
-            
             
             [self requestRefreshTokenAndGetPlaylist];
             
@@ -311,8 +286,6 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:body options:0 error:&error];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    
     NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlString parameters:nil error:nil];
     
     req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
@@ -321,7 +294,7 @@
     [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
     
     
-    [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+    [[self.AFURLManager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         
         if (!error) {
             NSLog(@"Reply JSON: %@", responseObject);
@@ -354,8 +327,7 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:body options:0 error:&error];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    
+
     NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"DELETE" URLString:urlString parameters:nil error:nil];
     
     req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
@@ -364,7 +336,7 @@
     [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
     
     
-    [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+    [[self.AFURLManager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         
         if (!error) {
             NSLog(@"Reply JSON: %@", responseObject);
