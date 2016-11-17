@@ -10,15 +10,13 @@
 #import "SpotifySingleton.h"
 #import "SongTableViewCell.h"
 #import "SongDetailViewController.h"
-#import "SPSong.h"
+#import "SPPlaylistTrack.h"
 #import "SPTrack.h"
+#import "CellConfigManager.h"
+
 
 @interface TrackSearchTableViewController : UITableViewController<UISearchResultsUpdating, UISearchBarDelegate>
 
-@property NSMutableArray *searchResults;
-@property (strong, nonatomic) UISearchController *searchController;
 
-//@property (strong, nonatomic) SPSong *song;
-@property (strong, nonatomic) SPTrack *track;
 
 @end

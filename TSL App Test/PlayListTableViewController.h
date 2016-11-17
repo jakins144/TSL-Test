@@ -10,6 +10,7 @@
 #import "SpotifySingleton.h"
 #import "PlayListTableViewCell.h"
 #import "SPPlaylist.h"
+#import "CellConfigManager.h"
 
 @interface PlayListTableViewController : UITableViewController
 

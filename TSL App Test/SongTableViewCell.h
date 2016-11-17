@@ -12,6 +12,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *songImageView;
 @property (weak, nonatomic) IBOutlet UILabel *songTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *albumTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *songCountLabel;
 
 @end

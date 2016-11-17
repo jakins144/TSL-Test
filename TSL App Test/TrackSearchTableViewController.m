@@ -10,6 +10,13 @@
 
 @interface TrackSearchTableViewController ()
 
+@property NSMutableArray *searchResults;
+@property (strong, nonatomic) UISearchController *searchController;
+@property (strong,nonatomic) CellConfigManager * cellConfig;
+
+//@property (strong, nonatomic) SPSong *song;
+@property (strong, nonatomic) SPTrack *track;
+
 @end
 
 @implementation TrackSearchTableViewController
@@ -31,6 +38,8 @@
     self.tableView.tableHeaderView = self.searchController.searchBar;
     
     self.definesPresentationContext = YES;
+    
+    self.cellConfig =[[CellConfigManager alloc]init];
   
 }
 
@@ -84,49 +93,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SongTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-//    NSDictionary *songDict = self.searchResults[indexPath.row];
-    
-    self.track = [SPTrack itemFromJSONDictionary:self.searchResults[indexPath.row]];
-//    
-//    
-//    NSDictionary *songAlbumDict = songDict[@"album"];
-//    
-//    NSArray *songArtistsTopArray = songDict[@"artists"];
-    
-    NSDictionary *songArtistsDict = self.track.artists[0];
-    
-    
-    cell.songImageView.image = nil; // or cell.poster.image = [UIImage imageNamed:@"placeholder.png"];
-    
-    NSArray *imageArray = self.track.album[@"images"];
-    
-    if ([imageArray count] > 0) {
-        NSDictionary *imageDict = imageArray[0];
-        NSString *imageURLString = imageDict[@"url"];
-        
-        NSURL *url = [NSURL URLWithString:imageURLString];
-        
-        NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            if (data) {
-                UIImage *image = [UIImage imageWithData:data];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        SongTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
-                        if (updateCell)
-                            updateCell.songImageView.image = image;
-                    });
-                }
-            }
-        }];
-        [task resume];
-    }
-    else
-        cell.songImageView.image = nil;
-    
-    cell.songTitleLabel.text = self.track.trackName;
-    
-    cell.albumTitleLabel.text = [NSString stringWithFormat:@"%@ * %@",songArtistsDict[@"name"], self.track.album[@"name"]];
-    
+    [self.cellConfig configSongCellForSearchResultsWithCell:cell andTrackDict:self.searchResults[indexPath.row] andTableView:tableView andIndexPath:indexPath];
+
     
     return cell;
 }

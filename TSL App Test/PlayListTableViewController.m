@@ -12,8 +12,9 @@
 @interface PlayListTableViewController ()
 
 
-@property (strong,nonatomic) SPPlaylist *playlist;
+//@property (strong,nonatomic) SPPlaylist *playlist;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
+@property (strong,nonatomic) CellConfigManager * cellConfig;
 
 - (IBAction)createPlaylistAction:(id)sender;
 @end
@@ -28,7 +29,7 @@
                                                object:nil];
     
     //self.playlist = [[SPPlaylist alloc]init];
-    
+    self.cellConfig =[[CellConfigManager alloc]init];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -68,49 +69,51 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PlayListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-   self.playlist = self.playListsArray[indexPath.row];
+    [self.cellConfig configPlayListCellWithCell:cell andPlayListDict:self.playListsArray[indexPath.row] andTableView:tableView andIndexPath:indexPath];
     
-    self.playlist = [SPPlaylist itemFromJSONDictionary:self.playListsArray[indexPath.row]];
-    
-   // NSLog(@"%@", self.playlist.description);
-    
-    cell.playListTitleLabel.text = self.playlist.name;
-    
-    
-    cell.playListImageView.image = nil;
-    
-    NSArray *imageArray = self.playlist.images;
-    
-    if ([imageArray count] > 0) {
-        NSDictionary *imageDict = imageArray[0];
-        NSString *imageURLString = imageDict[@"url"];
-        
-        NSURL *url = [NSURL URLWithString:imageURLString];
-        
-        NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            if (data) {
-                UIImage *image = [UIImage imageWithData:data];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        PlayListTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
-                        if (updateCell)
-                            updateCell.playListImageView.image = image;
-                    });
-                }
-            }
-        }];
-        [task resume];
-    }
-    else
-        cell.playListImageView.image = nil;
-    
-    
-    NSDictionary *tracksDict = self.playlist.tracks;
-    NSNumber* tracksTotal = tracksDict[@"total"];
-    
-    
-    
-    cell.songAmountLabel.text = [NSString stringWithFormat:@"%ld Songs", (long)[tracksTotal integerValue]];
+//   self.playlist = self.playListsArray[indexPath.row];
+//    
+//    self.playlist = [SPPlaylist itemFromJSONDictionary:self.playListsArray[indexPath.row]];
+//    
+//   // NSLog(@"%@", self.playlist.description);
+//    
+//    cell.playListTitleLabel.text = self.playlist.name;
+//    
+//    
+//    cell.playListImageView.image = nil;
+//    
+//    NSArray *imageArray = self.playlist.images;
+//    
+//    if ([imageArray count] > 0) {
+//        NSDictionary *imageDict = imageArray[0];
+//        NSString *imageURLString = imageDict[@"url"];
+//        
+//        NSURL *url = [NSURL URLWithString:imageURLString];
+//        
+//        NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//            if (data) {
+//                UIImage *image = [UIImage imageWithData:data];
+//                if (image) {
+//                    dispatch_async(dispatch_get_main_queue(), ^{
+//                        PlayListTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
+//                        if (updateCell)
+//                            updateCell.playListImageView.image = image;
+//                    });
+//                }
+//            }
+//        }];
+//        [task resume];
+//    }
+//    else
+//        cell.playListImageView.image = nil;
+//    
+//    
+//    NSDictionary *tracksDict = self.playlist.tracks;
+//    NSNumber* tracksTotal = tracksDict[@"total"];
+//    
+//    
+//    
+//    cell.songAmountLabel.text = [NSString stringWithFormat:@"%ld Songs", (long)[tracksTotal integerValue]];
     
     // Configure the cell...
     

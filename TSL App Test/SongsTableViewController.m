@@ -10,6 +10,10 @@
 
 @interface SongsTableViewController ()
 
+@property (strong, nonatomic) SPPlaylistTrack *song;
+
+@property (strong,nonatomic) CellConfigManager * cellConfig;
+
 @end
 
 @implementation SongsTableViewController
@@ -23,6 +27,7 @@
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    self.cellConfig =[[CellConfigManager alloc]init];
     
 }
 
@@ -60,59 +65,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SongTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
+    [self.cellConfig configSongCellWithCell:cell andSongDict:self.listOfSongsArray[indexPath.row] andTableView:tableView andIndexPath:indexPath];
     
-    
-   // NSDictionary *songTopDict = self.listOfSongsArray[indexPath.row];
-    
-    self.song = [SPSong itemFromJSONDictionary:self.listOfSongsArray[indexPath.row]];
-    
-    NSLog(@"%@", self.song.description);
-    
-  //  self.track = self.song.track;
-    //NSDictionary *songDict = songTopDict[@"track"];
-    
-   // NSDictionary *songAlbumDict = songDict[@"album"];
-    
-   // NSArray *songArtistsTopArray = self.song.track.artists;
-    
-    NSDictionary *songArtistsDict = self.song.track.artists[0];
-    
-    
-    
-    
-    cell.songImageView.image = nil;
-    
-    NSArray *imageArray = self.song.track.album[@"images"];
-    
-    if ([imageArray count] > 0) {
-        NSDictionary *imageDict = imageArray[0];
-        NSString *imageURLString = imageDict[@"url"];
-        
-        NSURL *url = [NSURL URLWithString:imageURLString];
-        
-        NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            if (data) {
-                UIImage *image = [UIImage imageWithData:data];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        SongTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
-                        if (updateCell)
-                            updateCell.songImageView.image = image;
-                    });
-                }
-            }
-        }];
-        [task resume];
-    }
-    else
-        cell.songImageView.image = nil;
-    
-    cell.songTitleLabel.text = self.song.track.trackName;
-    
-    //cell.songTitleLabel.text = songDict[@"name"];
-    
-    cell.albumTitleLabel.text = [NSString stringWithFormat:@"%@ * %@",songArtistsDict[@"name"], self.song.track.album[@"name"]];
-    
+     
     
     // Configure the cell...
     
@@ -126,7 +81,7 @@
         SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
         //NSDictionary *songTopDict = self.listOfSongsArray[indexPath.row];
         
-        self.song = [SPSong itemFromJSONDictionary:self.listOfSongsArray[indexPath.row]];
+        self.song = [SPPlaylistTrack itemFromJSONDictionary:self.listOfSongsArray[indexPath.row]];
         
        // NSDictionary *songDict = songTopDict[@"track"];
         NSNumber *positionNumb = [[NSNumber alloc]initWithLong:indexPath.row];
@@ -174,7 +129,7 @@
         
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         
-        self.song = [SPSong itemFromJSONDictionary:self.listOfSongsArray[indexPath.row]];
+        self.song = [SPPlaylistTrack itemFromJSONDictionary:self.listOfSongsArray[indexPath.row]];
         
         vc.track = self.song.track;
         

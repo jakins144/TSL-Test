@@ -9,7 +9,7 @@
 #import "SPBaseItem.h"
 #import "SPTrack.h"
 
-@interface SPSong : SPBaseItem
+@interface SPPlaylistTrack : SPBaseItem
 @property (strong, nonatomic) NSString *addedAt;
 @property (strong, nonatomic) NSDictionary *addedBy;
 @property (strong, nonatomic) NSNumber *isLocal;

@@ -6,9 +6,9 @@
 //  Copyright © 2016 Josh Akins. All rights reserved.
 //
 
-#import "SPSong.h"
+#import "SPPlaylistTrack.h"
 
-@implementation SPSong
+@implementation SPPlaylistTrack
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     

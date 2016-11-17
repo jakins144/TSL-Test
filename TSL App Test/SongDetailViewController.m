@@ -13,11 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *addToNewPlayListButton;
 @property (weak, nonatomic) IBOutlet UIButton *addToExistingPlaylistButton;
 
-
-
-
 @property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;
-
 
 
 
