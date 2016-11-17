@@ -79,7 +79,7 @@
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
     NSString *searchString = searchController.searchBar.text;
-    SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
+    SpotifyServiceManager *sharedManager = [SpotifyServiceManager sharedManager];
     
     [self.indicator startAnimating];
     [sharedManager searchTrackWithText:searchString];

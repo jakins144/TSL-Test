@@ -37,7 +37,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
+    SpotifyServiceManager *sharedManager = [SpotifyServiceManager sharedManager];
     [self.indicator startAnimating];
     [sharedManager requestRefreshTokenAndGetPlaylist];
 }
@@ -103,7 +103,7 @@
         NSArray * textfields = alertController.textFields;
         UITextField * playlistTitleField = textfields[0];
         
-        SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
+        SpotifyServiceManager *sharedManager = [SpotifyServiceManager sharedManager];
         [self.indicator startAnimating];
         [sharedManager createPlaylistWithName:playlistTitleField.text];
         

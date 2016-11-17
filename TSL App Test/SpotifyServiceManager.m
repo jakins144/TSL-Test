@@ -6,17 +6,17 @@
 //  Copyright © 2016 Josh Akins. All rights reserved.
 //
 
-#import "SpotifySingleton.h"
+#import "SpotifyServiceManager.h"
 
-@interface SpotifySingleton ()
+@interface SpotifyServiceManager ()
 @property (strong,nonatomic) AFHTTPSessionManager *AFHTTPManager;
 @property (strong,nonatomic) AFURLSessionManager *AFURLManager;
 @end
 
-@implementation SpotifySingleton
+@implementation SpotifyServiceManager
 
 + (id)sharedManager {
-    static SpotifySingleton *sharedMyManager = nil;
+    static SpotifyServiceManager *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];

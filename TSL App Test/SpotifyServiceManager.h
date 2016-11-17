@@ -10,7 +10,7 @@
 #import "AFNetworking.h"
 #import "Constants.h"
 
-@interface SpotifySingleton : NSObject
+@interface SpotifyServiceManager : NSObject
 + (id)sharedManager;
 
 @property (strong,nonatomic) NSString *accessToken;

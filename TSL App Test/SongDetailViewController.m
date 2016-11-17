@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *addToExistingPlaylistButton;
 @property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *songDetailImageView;
-@property (weak, nonatomic) IBOutlet UIButton *addToPlayList;
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 
 - (IBAction)previewButtonAction:(id)sender;
@@ -102,7 +101,7 @@
         NSArray * textfields = alertController.textFields;
         UITextField * playlistTitleField = textfields[0];
         
-        SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
+        SpotifyServiceManager *sharedManager = [SpotifyServiceManager sharedManager];
         
         [sharedManager createPlaylistWithName:playlistTitleField.text andAddSong:self.track.uri];
         

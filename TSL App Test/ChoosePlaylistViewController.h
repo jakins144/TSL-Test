@@ -7,7 +7,7 @@
 //
 
 #import "PlayListTableViewController.h"
-#import "SpotifySingleton.h"
+#import "SpotifyServiceManager.h"
 #import "AppDelegate.h"
 #import "ActivityIndicatorManager.h"
 

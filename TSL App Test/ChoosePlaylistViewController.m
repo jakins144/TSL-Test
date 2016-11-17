@@ -33,7 +33,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
+    SpotifyServiceManager *sharedManager = [SpotifyServiceManager sharedManager];
     
     NSDictionary* playListInfoDict = self.playListsArray[indexPath.row];
     

@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Constants.h"
-#import "SpotifySingleton.h"
+#import "SpotifyServiceManager.h"
 
-@interface ViewController : UIViewController
+@interface SignUpViewController : UIViewController
 - (IBAction)signUpButtonAction:(id)sender;
 
 @end

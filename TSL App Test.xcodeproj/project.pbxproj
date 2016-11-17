@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2CB5320EEB6134992644E784 /* Pods_TSL_App_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367D4279DE4E82C6DCAD48C5 /* Pods_TSL_App_Test.framework */; };
-		EB0FC7301DD3206E0085F828 /* SpotifySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0FC72F1DD3206E0085F828 /* SpotifySingleton.m */; };
+		EB0FC7301DD3206E0085F828 /* SpotifyServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0FC72F1DD3206E0085F828 /* SpotifyServiceManager.m */; };
 		EB1C01831DD4D0B4009A3924 /* PlayListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1C01821DD4D0B4009A3924 /* PlayListTableViewController.m */; };
 		EB1C01861DD4D149009A3924 /* PlayListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1C01851DD4D149009A3924 /* PlayListTableViewCell.m */; };
 		EB2015061DD2592C00F5547A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2015051DD2592C00F5547A /* Constants.m */; };
@@ -17,7 +17,7 @@
 		EB275BBC1DD641E400C01216 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB275BBB1DD641E300C01216 /* AVFoundation.framework */; };
 		EB443E9C1DD12401003CA241 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB443E9B1DD12401003CA241 /* main.m */; };
 		EB443E9F1DD12401003CA241 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB443E9E1DD12401003CA241 /* AppDelegate.m */; };
-		EB443EA21DD12401003CA241 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB443EA11DD12401003CA241 /* ViewController.m */; };
+		EB443EA21DD12401003CA241 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB443EA11DD12401003CA241 /* SignUpViewController.m */; };
 		EB443EA51DD12401003CA241 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB443EA31DD12401003CA241 /* Main.storyboard */; };
 		EB443EA71DD12401003CA241 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB443EA61DD12401003CA241 /* Assets.xcassets */; };
 		EB443EAA1DD12401003CA241 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB443EA81DD12401003CA241 /* LaunchScreen.storyboard */; };
@@ -37,8 +37,8 @@
 		367D4279DE4E82C6DCAD48C5 /* Pods_TSL_App_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSL_App_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABC8A2D205E0FEFE68D9BAB9 /* Pods-TSL App Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSL App Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSL App Test/Pods-TSL App Test.release.xcconfig"; sourceTree = "<group>"; };
 		B48E91A6280CE520F321F561 /* Pods-TSL App Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSL App Test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSL App Test/Pods-TSL App Test.debug.xcconfig"; sourceTree = "<group>"; };
-		EB0FC72E1DD3206E0085F828 /* SpotifySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifySingleton.h; sourceTree = "<group>"; };
-		EB0FC72F1DD3206E0085F828 /* SpotifySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifySingleton.m; sourceTree = "<group>"; };
+		EB0FC72E1DD3206E0085F828 /* SpotifyServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyServiceManager.h; sourceTree = "<group>"; };
+		EB0FC72F1DD3206E0085F828 /* SpotifyServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyServiceManager.m; sourceTree = "<group>"; };
 		EB1C01811DD4D0B4009A3924 /* PlayListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayListTableViewController.h; sourceTree = "<group>"; };
 		EB1C01821DD4D0B4009A3924 /* PlayListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayListTableViewController.m; sourceTree = "<group>"; };
 		EB1C01841DD4D149009A3924 /* PlayListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayListTableViewCell.h; sourceTree = "<group>"; };
@@ -54,8 +54,8 @@
 		EB443E9B1DD12401003CA241 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB443E9D1DD12401003CA241 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EB443E9E1DD12401003CA241 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EB443EA01DD12401003CA241 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EB443EA11DD12401003CA241 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EB443EA01DD12401003CA241 /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		EB443EA11DD12401003CA241 /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		EB443EA41DD12401003CA241 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB443EA61DD12401003CA241 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB443EA91DD12401003CA241 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -148,12 +148,12 @@
 				EB65E7371DDC2399001D4B19 /* Model Classes */,
 				EB443E9D1DD12401003CA241 /* AppDelegate.h */,
 				EB443E9E1DD12401003CA241 /* AppDelegate.m */,
-				EB443EA11DD12401003CA241 /* ViewController.m */,
-				EB443EA01DD12401003CA241 /* ViewController.h */,
+				EB443EA11DD12401003CA241 /* SignUpViewController.m */,
+				EB443EA01DD12401003CA241 /* SignUpViewController.h */,
 				EB2015041DD2592C00F5547A /* Constants.h */,
 				EB2015051DD2592C00F5547A /* Constants.m */,
-				EB0FC72E1DD3206E0085F828 /* SpotifySingleton.h */,
-				EB0FC72F1DD3206E0085F828 /* SpotifySingleton.m */,
+				EB0FC72E1DD3206E0085F828 /* SpotifyServiceManager.h */,
+				EB0FC72F1DD3206E0085F828 /* SpotifyServiceManager.m */,
 				EBB30C031DD3C92E00997649 /* TSL App Test-Bridging-Header.h */,
 				EB1C01811DD4D0B4009A3924 /* PlayListTableViewController.h */,
 				EB1C01821DD4D0B4009A3924 /* PlayListTableViewController.m */,
@@ -332,7 +332,7 @@
 				EB65E7331DDC048B001D4B19 /* SPPlaylist.m in Sources */,
 				EB2015061DD2592C00F5547A /* Constants.m in Sources */,
 				EB65E73D1DDE0338001D4B19 /* CellConfigManager.m in Sources */,
-				EB443EA21DD12401003CA241 /* ViewController.m in Sources */,
+				EB443EA21DD12401003CA241 /* SignUpViewController.m in Sources */,
 				EB443E9F1DD12401003CA241 /* AppDelegate.m in Sources */,
 				EB443E9C1DD12401003CA241 /* main.m in Sources */,
 				EBD05C3D1DD557A50075C4C7 /* SongDetailViewController.m in Sources */,
@@ -343,7 +343,7 @@
 				EB65E7401DDE40E2001D4B19 /* ActivityIndicatorManager.m in Sources */,
 				EB1C01831DD4D0B4009A3924 /* PlayListTableViewController.m in Sources */,
 				EB65E73A1DDCB72B001D4B19 /* SPTrack.m in Sources */,
-				EB0FC7301DD3206E0085F828 /* SpotifySingleton.m in Sources */,
+				EB0FC7301DD3206E0085F828 /* SpotifyServiceManager.m in Sources */,
 				EB275BB71DD596A300C01216 /* TrackSearchTableViewController.m in Sources */,
 				EB65E7301DDBFFAC001D4B19 /* SPBaseItem.m in Sources */,
 			);

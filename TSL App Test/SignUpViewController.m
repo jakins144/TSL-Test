@@ -6,14 +6,14 @@
 //  Copyright © 2016 Josh Akins. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SignUpViewController.h"
 #import "AFNetworking.h"
 
-@interface ViewController ()
+@interface SignUpViewController ()
 
 @end
 
-@implementation ViewController
+@implementation SignUpViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,18 +29,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 - (IBAction)signUpButtonAction:(id)sender {
-    SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
+    SpotifyServiceManager *sharedManager = [SpotifyServiceManager sharedManager];
     [sharedManager requestAuthorization];
 }
 
 - (void) transitionToChoiceScreen:(NSNotification *) notification
 {
-    // [notification name] should always be @"TestNotification"
-    // unless you use this method for observation of other notifications
-    // as well.
-    
     [self performSegueWithIdentifier:@"toChoice" sender:self];
 }
 @end

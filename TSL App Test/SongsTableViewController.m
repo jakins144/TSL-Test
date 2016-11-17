@@ -40,7 +40,7 @@
     NSDictionary *tracksDict = self.playlist.tracks;
     
     [self.indicator startAnimating];
-    SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
+    SpotifyServiceManager *sharedManager = [SpotifyServiceManager sharedManager];
     
     [sharedManager getTracksWithURL:tracksDict[@"href"]];
 
@@ -76,7 +76,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
+        SpotifyServiceManager *sharedManager = [SpotifyServiceManager sharedManager];
 
         self.song = [SPPlaylistTrack itemFromJSONDictionary:self.listOfSongsArray[indexPath.row]];
 

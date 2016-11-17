@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "SpotifySingleton.h"
+#import "SpotifyServiceManager.h"
 
 @interface AppDelegate ()
 
@@ -26,7 +26,7 @@
     NSLog(@"%@", [url absoluteString]);
     
     if (url) {
-        SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
+        SpotifyServiceManager *sharedManager = [SpotifyServiceManager sharedManager];
         [sharedManager requestTokenWithDict:[self parseQueryString:[url absoluteString]].mutableCopy];
         
     }

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SpotifySingleton.h"
+#import "SpotifyServiceManager.h"
 #import "PlayListTableViewCell.h"
 #import "SPPlaylist.h"
 #import "CellConfigManager.h"

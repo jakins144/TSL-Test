@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SignUpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -385,8 +385,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addToExistingPlaylistButton" destination="Zox-8W-8BC" id="U5b-dt-8b7"/>
                         <outlet property="addToNewPlayListButton" destination="wis-9e-h6t" id="2sp-QY-HTt"/>
-                        <outlet property="addToPlayList" destination="Zox-8W-8BC" id="LxE-dz-UY3"/>
                         <outlet property="artistNameLabel" destination="nMn-c7-PPR" id="Yev-ow-NWi"/>
                         <outlet property="songDetailImageView" destination="KiO-jy-lsk" id="XlY-kA-uRj"/>
                         <outlet property="trackNameLabel" destination="sI1-Ox-CKs" id="GsO-rn-EDz"/>
