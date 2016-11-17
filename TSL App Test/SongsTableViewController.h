@@ -18,12 +18,8 @@
 
 @interface SongsTableViewController : UITableViewController
 
-
 @property (strong, nonatomic) SPPlaylist *playlist;
 
 @property (strong, nonatomic) NSMutableArray *listOfSongsArray;
-
-
-
 
 @end

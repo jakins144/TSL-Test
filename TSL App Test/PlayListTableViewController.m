@@ -11,7 +11,6 @@
 
 @interface PlayListTableViewController ()
 
-
 //@property (strong,nonatomic) SPPlaylist *playlist;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
 @property (strong,nonatomic) CellConfigManager * cellConfig;
@@ -38,7 +37,6 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
     SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
     [self.indicator startAnimating];
     [sharedManager requestRefreshTokenAndGetPlaylist];
@@ -61,7 +59,6 @@
     return [self.playListsArray count];
 }
 
-
 - (void) reloadDataSource:(NSNotification *) notification
 {
     self.playListsArray =  notification.userInfo[@"list"];
@@ -69,66 +66,13 @@
     [self.tableView reloadData];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PlayListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     [self.cellConfig configPlayListCellWithCell:cell andPlayListDict:self.playListsArray[indexPath.row] andTableView:tableView andIndexPath:indexPath];
-    
-//   self.playlist = self.playListsArray[indexPath.row];
-//    
-//    self.playlist = [SPPlaylist itemFromJSONDictionary:self.playListsArray[indexPath.row]];
-//    
-//   // NSLog(@"%@", self.playlist.description);
-//    
-//    cell.playListTitleLabel.text = self.playlist.name;
-//    
-//    
-//    cell.playListImageView.image = nil;
-//    
-//    NSArray *imageArray = self.playlist.images;
-//    
-//    if ([imageArray count] > 0) {
-//        NSDictionary *imageDict = imageArray[0];
-//        NSString *imageURLString = imageDict[@"url"];
-//        
-//        NSURL *url = [NSURL URLWithString:imageURLString];
-//        
-//        NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//            if (data) {
-//                UIImage *image = [UIImage imageWithData:data];
-//                if (image) {
-//                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        PlayListTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
-//                        if (updateCell)
-//                            updateCell.playListImageView.image = image;
-//                    });
-//                }
-//            }
-//        }];
-//        [task resume];
-//    }
-//    else
-//        cell.playListImageView.image = nil;
-//    
-//    
-//    NSDictionary *tracksDict = self.playlist.tracks;
-//    NSNumber* tracksTotal = tracksDict[@"total"];
-//    
-//    
-//    
-//    cell.songAmountLabel.text = [NSString stringWithFormat:@"%ld Songs", (long)[tracksTotal integerValue]];
-    
-    // Configure the cell...
-    
+
     return cell;
 }
-
-
-
-
-
-
 
 #pragma mark - Navigation
 
@@ -144,19 +88,9 @@
         
         vc.playlist =[SPPlaylist itemFromJSONDictionary:self.playListsArray[indexPath.row]];
 
-        
-        
     }
-    
-    // vc.playListInfoDict =
-    
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
+
 }
-
-
-
 
 - (IBAction)createPlaylistAction:(id)sender {
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Create Playlist"
@@ -176,8 +110,6 @@
         SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
         [self.indicator startAnimating];
         [sharedManager createPlaylistWithName:playlistTitleField.text];
-        
-        
         
     }]];
     [self presentViewController:alertController animated:YES completion:nil];

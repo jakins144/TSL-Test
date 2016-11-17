@@ -14,9 +14,7 @@
 #import "SPTrack.h"
 #import  <YYWebImage/YYWebImage.h>
 
-
 @interface CellConfigManager : NSObject
-
 
 -(void)configPlayListCellWithCell:(PlayListTableViewCell*)cell andPlayListDict:(NSDictionary*)playListDict andTableView:(UITableView*)theTableView andIndexPath:(NSIndexPath*)theIndexPath;
 

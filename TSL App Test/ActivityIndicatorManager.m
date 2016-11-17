@@ -12,8 +12,6 @@
 @property (strong,nonatomic) UIActivityIndicatorView *indicator;
 @end
 
-
-
 @implementation ActivityIndicatorManager
 
 - (instancetype)initWithView:(UIView*)theView

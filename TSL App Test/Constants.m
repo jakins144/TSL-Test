@@ -18,6 +18,4 @@ NSString *const spotifyBaseURL = @"https://api.spotify.com/";
 
 NSString *const spotifyAccountsBaseURL = @"https://accounts.spotify.com/";
 
-
-
 @end

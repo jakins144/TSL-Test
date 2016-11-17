@@ -15,9 +15,6 @@
 #import "CellConfigManager.h"
 #import "ActivityIndicatorManager.h"
 
-
 @interface TrackSearchTableViewController : UITableViewController<UISearchResultsUpdating, UISearchBarDelegate>
-
-
 
 @end

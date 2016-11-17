@@ -12,27 +12,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *trackNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addToNewPlayListButton;
 @property (weak, nonatomic) IBOutlet UIButton *addToExistingPlaylistButton;
-
 @property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;
-
-
-
-//@property (strong, nonatomic) NSDictionary *topSongDict;
-
 @property (weak, nonatomic) IBOutlet UIImageView *songDetailImageView;
-
 @property (weak, nonatomic) IBOutlet UIButton *addToPlayList;
-
-//@property (strong, nonatomic) NSString* trackURI;
-
-//@property (strong, nonatomic) NSString* previewURL;
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 
 - (IBAction)previewButtonAction:(id)sender;
 - (IBAction)closeButtonAction:(id)sender;
-
 - (IBAction)addToPlayListAction:(id)sender;
-
 
 @end
 
@@ -40,30 +27,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    ;
-    
-
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(dismissChoice:)
                                                  name:@"songAdded"
                                                object:nil];
     if (self.track) {
-//        NSDictionary *songDict = nil;
-//        if (self.fromSearchScreen) {
-//            songDict = self.topSongDict;
-//        }
-//        else
-//            songDict = self.topSongDict[@"track"];
-        
-      //  self.trackURI = songDict[@"uri"];
-        
-   
-      //  NSDictionary *songAlbumDict = songDict[@"album"];
 
-        
         NSDictionary *songArtistsDict = self.track.artists[0];
-        
         
         NSArray *imageArray = self.track.album[@"images"];
         
@@ -89,7 +59,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -98,10 +67,8 @@
     {
         ChoosePlaylistViewController *vc = [segue destinationViewController];
         
-        
         vc.trackURI = self.track.uri;
-        
-        
+    
     }
 }
 
@@ -122,8 +89,6 @@
 
 - (IBAction)addToPlayListAction:(id)sender {
     
-   
-    
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Create Playlist"
                                                                               message: @"Input the Playlist title"
                                                                        preferredStyle:UIAlertControllerStyleAlert];
@@ -143,11 +108,9 @@
         
         [sharedManager createPlaylistWithName:playlistTitleField.text andAddSong:self.track.uri];
         
-        
     }]];
     [self presentViewController:alertController animated:YES completion:nil];
 }
-
 
 -(void)playAudioFromURL:(NSString*)songURL
 {

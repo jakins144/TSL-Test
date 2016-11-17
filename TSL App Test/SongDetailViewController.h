@@ -17,7 +17,4 @@
 
 @property BOOL fromSearchScreen;
 
-
-
-
 @end

@@ -14,7 +14,6 @@
 @property (strong, nonatomic) UISearchController *searchController;
 @property (strong,nonatomic) CellConfigManager * cellConfig;
 @property (strong,nonatomic) ActivityIndicatorManager *indicator;
-//@property (strong, nonatomic) SPSong *song;
 @property (strong, nonatomic) SPTrack *track;
 
 @end
@@ -25,13 +24,11 @@
     
     self.indicator  = [[ActivityIndicatorManager alloc]initWithView:self.view];
     
-    
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadDataSource:)
                                                  name:@"searchSet"
                                                object:nil];
-    
     
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
@@ -101,7 +98,6 @@
     
     [self.cellConfig configSongCellForSearchResultsWithCell:cell andTrackDict:self.searchResults[indexPath.row] andTableView:tableView andIndexPath:indexPath];
 
-    
     return cell;
 }
 

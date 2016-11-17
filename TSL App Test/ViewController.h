@@ -10,10 +10,8 @@
 #import "Constants.h"
 #import "SpotifySingleton.h"
 
-
 @interface ViewController : UIViewController
 - (IBAction)signUpButtonAction:(id)sender;
-
 
 @end
 

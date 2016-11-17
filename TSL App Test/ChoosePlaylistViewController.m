@@ -10,8 +10,6 @@
 
 @interface ChoosePlaylistViewController ()
 
-//@property (strong,nonatomic) ActivityIndicatorManager *indicator;
-
 @end
 
 @implementation ChoosePlaylistViewController
@@ -27,19 +25,16 @@
     
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
     
     NSDictionary* playListInfoDict = self.playListsArray[indexPath.row];
-    
     
     NSLog(@"");
     
@@ -49,11 +44,7 @@
 
 - (void) dismissChoice:(NSNotification *) notification
 {
-    
     [self dismissViewControllerAnimated:YES completion:nil];
-    
-    
 }
-
 
 @end

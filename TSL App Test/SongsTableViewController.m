@@ -46,7 +46,6 @@
 
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -64,33 +63,26 @@
     return [self.listOfSongsArray count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SongTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     [self.cellConfig configSongCellWithCell:cell andSongDict:self.listOfSongsArray[indexPath.row] andTableView:tableView andIndexPath:indexPath];
-    
-     
     
     // Configure the cell...
     
     return cell;
 }
 
-
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
-        //NSDictionary *songTopDict = self.listOfSongsArray[indexPath.row];
-        
+
         self.song = [SPPlaylistTrack itemFromJSONDictionary:self.listOfSongsArray[indexPath.row]];
-        
-       // NSDictionary *songDict = songTopDict[@"track"];
+
         NSNumber *positionNumb = [[NSNumber alloc]initWithLong:indexPath.row];
         
         [sharedManager deleteTrackWtih:self.song.track.uri andPlaylistID:self.playlist.playlistID andPositon:positionNumb];
-        
         
         [self.listOfSongsArray removeObjectAtIndex:indexPath.row];
         
@@ -115,8 +107,6 @@
     return YES;
 }
 
-
-
 - (void) reloadDataSource:(NSNotification *) notification
 {
     NSArray* listArray = notification.userInfo[@"list"];
@@ -139,6 +129,5 @@
         
     }
 }
-
 
 @end
