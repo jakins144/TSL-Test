@@ -9,6 +9,7 @@
 #import "PlayListTableViewController.h"
 #import "SpotifySingleton.h"
 #import "AppDelegate.h"
+#import "ActivityIndicatorManager.h"
 
 @interface ChoosePlaylistViewController : PlayListTableViewController
 

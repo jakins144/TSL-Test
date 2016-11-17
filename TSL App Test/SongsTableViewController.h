@@ -14,6 +14,7 @@
 #import "SPTrack.h"
 #import "SPPlaylist.h"
 #import "CellConfigManager.h"
+#import "ActivityIndicatorManager.h"
 
 @interface SongsTableViewController : UITableViewController
 

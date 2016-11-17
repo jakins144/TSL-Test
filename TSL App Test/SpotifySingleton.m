@@ -50,15 +50,11 @@
         
         self.accessToken = responseObject[@"access_token"];
         self.refreshToken = responseObject[@"refresh_token"];
-        
-        
-        
+    
         [[NSNotificationCenter defaultCenter]
          postNotificationName:@"TokensSet"
          object:self];
-        
-        
-        
+    
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -69,21 +65,14 @@
 
 -(void)requestRefreshTokenAndGetPlaylist
 {
-    
-    
     NSString *urlString = [NSString stringWithFormat:@"%@api/token?grant_type=refresh_token&refresh_token=%@&client_id=%@&client_secret=%@&redirect_uri=tsl-app-test://", spotifyAccountsBaseURL, self.refreshToken, clientID, clientSecret];
 
-    
     [self.AFHTTPManager POST:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
         self.accessToken = responseObject[@"access_token"];
-        //   self.refreshToken = responseObject[@"refresh_token"];
-        
-        // [self retrieveUserID];
+     
         [self retrievePlayLists];
-        
-        
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);

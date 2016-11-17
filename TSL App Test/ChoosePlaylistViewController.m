@@ -10,12 +10,15 @@
 
 @interface ChoosePlaylistViewController ()
 
+//@property (strong,nonatomic) ActivityIndicatorManager *indicator;
+
 @end
 
 @implementation ChoosePlaylistViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   //  self.indicator  = [[ActivityIndicatorManager alloc]initWithView:self.view];
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(dismissChoice:)

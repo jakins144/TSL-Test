@@ -11,6 +11,7 @@
 #import "PlayListTableViewCell.h"
 #import "SPPlaylist.h"
 #import "CellConfigManager.h"
+#import "ActivityIndicatorManager.h"
 
 @interface PlayListTableViewController : UITableViewController
 

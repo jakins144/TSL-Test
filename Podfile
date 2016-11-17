@@ -5,6 +5,7 @@ use_frameworks!
 target 'TSL App Test' do
 	pod 'AFNetworking', '~> 3.0'
     pod 'Mantle', '~> 2.1.0'
+    pod 'YYWebImage'
 
 end
 

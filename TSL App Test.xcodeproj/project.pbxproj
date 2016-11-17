@@ -21,35 +21,17 @@
 		EB443EA51DD12401003CA241 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB443EA31DD12401003CA241 /* Main.storyboard */; };
 		EB443EA71DD12401003CA241 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB443EA61DD12401003CA241 /* Assets.xcassets */; };
 		EB443EAA1DD12401003CA241 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB443EA81DD12401003CA241 /* LaunchScreen.storyboard */; };
-		EB443EB51DD12401003CA241 /* TSL_App_TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB443EB41DD12401003CA241 /* TSL_App_TestTests.m */; };
-		EB443EC01DD12401003CA241 /* TSL_App_TestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB443EBF1DD12401003CA241 /* TSL_App_TestUITests.m */; };
 		EB443ED01DD12D2A003CA241 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = EB443ECF1DD12D2A003CA241 /* Podfile */; };
 		EB65E7301DDBFFAC001D4B19 /* SPBaseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EB65E72F1DDBFFAC001D4B19 /* SPBaseItem.m */; };
 		EB65E7331DDC048B001D4B19 /* SPPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = EB65E7321DDC048B001D4B19 /* SPPlaylist.m */; };
 		EB65E7361DDC237E001D4B19 /* SPPlaylistTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = EB65E7351DDC237E001D4B19 /* SPPlaylistTrack.m */; };
 		EB65E73A1DDCB72B001D4B19 /* SPTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = EB65E7391DDCB72B001D4B19 /* SPTrack.m */; };
 		EB65E73D1DDE0338001D4B19 /* CellConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EB65E73C1DDE0338001D4B19 /* CellConfigManager.m */; };
+		EB65E7401DDE40E2001D4B19 /* ActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EB65E73F1DDE40E2001D4B19 /* ActivityIndicatorManager.m */; };
 		EBD05C371DD514A50075C4C7 /* SongTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD05C361DD514A50075C4C7 /* SongTableViewCell.m */; };
 		EBD05C3A1DD5150F0075C4C7 /* SongsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD05C391DD5150F0075C4C7 /* SongsTableViewController.m */; };
 		EBD05C3D1DD557A50075C4C7 /* SongDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD05C3C1DD557A50075C4C7 /* SongDetailViewController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		EB443EB11DD12401003CA241 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB443E8F1DD12401003CA241 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EB443E961DD12401003CA241;
-			remoteInfo = "TSL App Test";
-		};
-		EB443EBC1DD12401003CA241 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB443E8F1DD12401003CA241 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EB443E961DD12401003CA241;
-			remoteInfo = "TSL App Test";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		367D4279DE4E82C6DCAD48C5 /* Pods_TSL_App_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSL_App_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,12 +60,6 @@
 		EB443EA61DD12401003CA241 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB443EA91DD12401003CA241 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB443EAB1DD12401003CA241 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB443EB01DD12401003CA241 /* TSL App TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TSL App TestTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB443EB41DD12401003CA241 /* TSL_App_TestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSL_App_TestTests.m; sourceTree = "<group>"; };
-		EB443EB61DD12401003CA241 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB443EBB1DD12401003CA241 /* TSL App TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TSL App TestUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB443EBF1DD12401003CA241 /* TSL_App_TestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSL_App_TestUITests.m; sourceTree = "<group>"; };
-		EB443EC11DD12402003CA241 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB443ECF1DD12D2A003CA241 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EB65E72E1DDBFFAC001D4B19 /* SPBaseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPBaseItem.h; sourceTree = "<group>"; };
 		EB65E72F1DDBFFAC001D4B19 /* SPBaseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBaseItem.m; sourceTree = "<group>"; };
@@ -95,6 +71,8 @@
 		EB65E7391DDCB72B001D4B19 /* SPTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTrack.m; sourceTree = "<group>"; };
 		EB65E73B1DDE0338001D4B19 /* CellConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellConfigManager.h; sourceTree = "<group>"; };
 		EB65E73C1DDE0338001D4B19 /* CellConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellConfigManager.m; sourceTree = "<group>"; };
+		EB65E73E1DDE40E2001D4B19 /* ActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityIndicatorManager.h; sourceTree = "<group>"; };
+		EB65E73F1DDE40E2001D4B19 /* ActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityIndicatorManager.m; sourceTree = "<group>"; };
 		EBB30C031DD3C92E00997649 /* TSL App Test-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TSL App Test-Bridging-Header.h"; sourceTree = "<group>"; };
 		EBD05C351DD514A50075C4C7 /* SongTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongTableViewCell.h; sourceTree = "<group>"; };
 		EBD05C361DD514A50075C4C7 /* SongTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongTableViewCell.m; sourceTree = "<group>"; };
@@ -111,20 +89,6 @@
 			files = (
 				EB275BBC1DD641E400C01216 /* AVFoundation.framework in Frameworks */,
 				2CB5320EEB6134992644E784 /* Pods_TSL_App_Test.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EB443EAD1DD12401003CA241 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EB443EB81DD12401003CA241 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,8 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				EB443E991DD12401003CA241 /* TSL App Test */,
-				EB443EB31DD12401003CA241 /* TSL App TestTests */,
-				EB443EBE1DD12401003CA241 /* TSL App TestUITests */,
 				EB443E981DD12401003CA241 /* Products */,
 				9182EAED6DEB9079052E94FD /* Pods */,
 				7C5BA1652312351D94512E1E /* Frameworks */,
@@ -176,8 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				EB443E971DD12401003CA241 /* TSL App Test.app */,
-				EB443EB01DD12401003CA241 /* TSL App TestTests.xctest */,
-				EB443EBB1DD12401003CA241 /* TSL App TestUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +165,8 @@
 				EBD05C3C1DD557A50075C4C7 /* SongDetailViewController.m */,
 				EB275BB51DD596A300C01216 /* TrackSearchTableViewController.h */,
 				EB275BB61DD596A300C01216 /* TrackSearchTableViewController.m */,
+				EB65E73E1DDE40E2001D4B19 /* ActivityIndicatorManager.h */,
+				EB65E73F1DDE40E2001D4B19 /* ActivityIndicatorManager.m */,
 				EB275BB81DD5CC0B00C01216 /* ChoosePlaylistViewController.h */,
 				EB275BB91DD5CC0B00C01216 /* ChoosePlaylistViewController.m */,
 				EB2015101DD26FF400F5547A /* Cells */,
@@ -224,24 +186,6 @@
 				EB443E9B1DD12401003CA241 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		EB443EB31DD12401003CA241 /* TSL App TestTests */ = {
-			isa = PBXGroup;
-			children = (
-				EB443EB41DD12401003CA241 /* TSL_App_TestTests.m */,
-				EB443EB61DD12401003CA241 /* Info.plist */,
-			);
-			path = "TSL App TestTests";
-			sourceTree = "<group>";
-		};
-		EB443EBE1DD12401003CA241 /* TSL App TestUITests */ = {
-			isa = PBXGroup;
-			children = (
-				EB443EBF1DD12401003CA241 /* TSL_App_TestUITests.m */,
-				EB443EC11DD12402003CA241 /* Info.plist */,
-			);
-			path = "TSL App TestUITests";
 			sourceTree = "<group>";
 		};
 		EB65E7371DDC2399001D4B19 /* Model Classes */ = {
@@ -282,42 +226,6 @@
 			productReference = EB443E971DD12401003CA241 /* TSL App Test.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EB443EAF1DD12401003CA241 /* TSL App TestTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EB443EC71DD12402003CA241 /* Build configuration list for PBXNativeTarget "TSL App TestTests" */;
-			buildPhases = (
-				EB443EAC1DD12401003CA241 /* Sources */,
-				EB443EAD1DD12401003CA241 /* Frameworks */,
-				EB443EAE1DD12401003CA241 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EB443EB21DD12401003CA241 /* PBXTargetDependency */,
-			);
-			name = "TSL App TestTests";
-			productName = "TSL App TestTests";
-			productReference = EB443EB01DD12401003CA241 /* TSL App TestTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		EB443EBA1DD12401003CA241 /* TSL App TestUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EB443ECA1DD12402003CA241 /* Build configuration list for PBXNativeTarget "TSL App TestUITests" */;
-			buildPhases = (
-				EB443EB71DD12401003CA241 /* Sources */,
-				EB443EB81DD12401003CA241 /* Frameworks */,
-				EB443EB91DD12401003CA241 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EB443EBD1DD12401003CA241 /* PBXTargetDependency */,
-			);
-			name = "TSL App TestUITests";
-			productName = "TSL App TestUITests";
-			productReference = EB443EBB1DD12401003CA241 /* TSL App TestUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -332,18 +240,6 @@
 						DevelopmentTeam = 64JXB3XQ2N;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
-					};
-					EB443EAF1DD12401003CA241 = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 64JXB3XQ2N;
-						ProvisioningStyle = Automatic;
-						TestTargetID = EB443E961DD12401003CA241;
-					};
-					EB443EBA1DD12401003CA241 = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 64JXB3XQ2N;
-						ProvisioningStyle = Automatic;
-						TestTargetID = EB443E961DD12401003CA241;
 					};
 				};
 			};
@@ -361,8 +257,6 @@
 			projectRoot = "";
 			targets = (
 				EB443E961DD12401003CA241 /* TSL App Test */,
-				EB443EAF1DD12401003CA241 /* TSL App TestTests */,
-				EB443EBA1DD12401003CA241 /* TSL App TestUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -376,20 +270,6 @@
 				EB443EA71DD12401003CA241 /* Assets.xcassets in Resources */,
 				EB443ED01DD12D2A003CA241 /* Podfile in Resources */,
 				EB443EA51DD12401003CA241 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EB443EAE1DD12401003CA241 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EB443EB91DD12401003CA241 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +340,7 @@
 				EB1C01861DD4D149009A3924 /* PlayListTableViewCell.m in Sources */,
 				EBD05C371DD514A50075C4C7 /* SongTableViewCell.m in Sources */,
 				EB275BBA1DD5CC0B00C01216 /* ChoosePlaylistViewController.m in Sources */,
+				EB65E7401DDE40E2001D4B19 /* ActivityIndicatorManager.m in Sources */,
 				EB1C01831DD4D0B4009A3924 /* PlayListTableViewController.m in Sources */,
 				EB65E73A1DDCB72B001D4B19 /* SPTrack.m in Sources */,
 				EB0FC7301DD3206E0085F828 /* SpotifySingleton.m in Sources */,
@@ -468,36 +349,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EB443EAC1DD12401003CA241 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EB443EB51DD12401003CA241 /* TSL_App_TestTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EB443EB71DD12401003CA241 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EB443EC01DD12401003CA241 /* TSL_App_TestUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EB443EB21DD12401003CA241 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EB443E961DD12401003CA241 /* TSL App Test */;
-			targetProxy = EB443EB11DD12401003CA241 /* PBXContainerItemProxy */;
-		};
-		EB443EBD1DD12401003CA241 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EB443E961DD12401003CA241 /* TSL App Test */;
-			targetProxy = EB443EBC1DD12401003CA241 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EB443EA31DD12401003CA241 /* Main.storyboard */ = {
@@ -642,56 +494,6 @@
 			};
 			name = Release;
 		};
-		EB443EC81DD12402003CA241 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 64JXB3XQ2N;
-				INFOPLIST_FILE = "TSL App TestTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.iridescentapps.TSL-App-TestTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TSL App Test.app/TSL App Test";
-			};
-			name = Debug;
-		};
-		EB443EC91DD12402003CA241 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 64JXB3XQ2N;
-				INFOPLIST_FILE = "TSL App TestTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.iridescentapps.TSL-App-TestTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TSL App Test.app/TSL App Test";
-			};
-			name = Release;
-		};
-		EB443ECB1DD12402003CA241 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = 64JXB3XQ2N;
-				INFOPLIST_FILE = "TSL App TestUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.iridescentapps.TSL-App-TestUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "TSL App Test";
-			};
-			name = Debug;
-		};
-		EB443ECC1DD12402003CA241 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = 64JXB3XQ2N;
-				INFOPLIST_FILE = "TSL App TestUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.iridescentapps.TSL-App-TestUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "TSL App Test";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -709,24 +511,6 @@
 			buildConfigurations = (
 				EB443EC51DD12402003CA241 /* Debug */,
 				EB443EC61DD12402003CA241 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EB443EC71DD12402003CA241 /* Build configuration list for PBXNativeTarget "TSL App TestTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EB443EC81DD12402003CA241 /* Debug */,
-				EB443EC91DD12402003CA241 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EB443ECA1DD12402003CA241 /* Build configuration list for PBXNativeTarget "TSL App TestUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EB443ECB1DD12402003CA241 /* Debug */,
-				EB443ECC1DD12402003CA241 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

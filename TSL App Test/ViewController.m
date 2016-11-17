@@ -18,8 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(transitionToChoiceScreen:)
                                                  name:@"TokensSet"
@@ -35,11 +33,7 @@
 
 - (IBAction)signUpButtonAction:(id)sender {
     SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
-    
     [sharedManager requestAuthorization];
-    
-    
-    
 }
 
 - (void) transitionToChoiceScreen:(NSNotification *) notification

@@ -15,6 +15,7 @@
 //@property (strong,nonatomic) SPPlaylist *playlist;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
 @property (strong,nonatomic) CellConfigManager * cellConfig;
+@property (strong,nonatomic) ActivityIndicatorManager *indicator;
 
 - (IBAction)createPlaylistAction:(id)sender;
 @end
@@ -23,6 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.indicator  = [[ActivityIndicatorManager alloc]initWithView:self.view];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadDataSource:)
                                                  name:@"playlistSet"
@@ -36,7 +40,7 @@
 {
     
     SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
-    
+    [self.indicator startAnimating];
     [sharedManager requestRefreshTokenAndGetPlaylist];
 }
 
@@ -61,7 +65,7 @@
 - (void) reloadDataSource:(NSNotification *) notification
 {
     self.playListsArray =  notification.userInfo[@"list"];
-    
+    [self.indicator stopAnimating];
     [self.tableView reloadData];
 }
 
@@ -170,7 +174,7 @@
         UITextField * playlistTitleField = textfields[0];
         
         SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
-        
+        [self.indicator startAnimating];
         [sharedManager createPlaylistWithName:playlistTitleField.text];
         
         

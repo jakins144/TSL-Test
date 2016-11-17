@@ -12,6 +12,7 @@
 #import "SPPlaylist.h"
 #import "SPPlaylistTrack.h"
 #import "SPTrack.h"
+#import  <YYWebImage/YYWebImage.h>
 
 
 @interface CellConfigManager : NSObject

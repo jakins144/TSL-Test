@@ -36,19 +36,9 @@
         
         NSURL *url = [NSURL URLWithString:imageURLString];
         
-        NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            if (data) {
-                UIImage *image = [UIImage imageWithData:data];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        PlayListTableViewCell *updateCell = (id)[theTableView cellForRowAtIndexPath:theIndexPath];
-                        if (updateCell)
-                        updateCell.playListImageView.image = image;
-                    });
-                }
-            }
-        }];
-        [task resume];
+        [cell.playListImageView yy_setImageWithURL:url options: YYWebImageOptionSetImageWithFadeAnimation];
+        
+
     }
     else
     cell.playListImageView.image = nil;
@@ -92,19 +82,8 @@
         
         NSURL *url = [NSURL URLWithString:imageURLString];
         
-        NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            if (data) {
-                UIImage *image = [UIImage imageWithData:data];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        SongTableViewCell *updateCell = (id)[theTableView cellForRowAtIndexPath:theIndexPath];
-                        if (updateCell)
-                        updateCell.songImageView.image = image;
-                    });
-                }
-            }
-        }];
-        [task resume];
+        [cell.songImageView yy_setImageWithURL:url options: YYWebImageOptionSetImageWithFadeAnimation];
+
     }
     else
     cell.songImageView.image = nil;
@@ -121,12 +100,7 @@
     
     
     self.track = [SPTrack itemFromJSONDictionary:trackDict];
-    //
-    //
-    //    NSDictionary *songAlbumDict = songDict[@"album"];
-    //
-    //    NSArray *songArtistsTopArray = songDict[@"artists"];
-    
+
     NSDictionary *songArtistsDict = self.track.artists[0];
     
     
@@ -138,21 +112,12 @@
         NSDictionary *imageDict = imageArray[0];
         NSString *imageURLString = imageDict[@"url"];
         
+        
+        
         NSURL *url = [NSURL URLWithString:imageURLString];
         
-        NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            if (data) {
-                UIImage *image = [UIImage imageWithData:data];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        SongTableViewCell *updateCell = (id)[theTableView cellForRowAtIndexPath:theIndexPath];
-                        if (updateCell)
-                        updateCell.songImageView.image = image;
-                    });
-                }
-            }
-        }];
-        [task resume];
+        [cell.songImageView yy_setImageWithURL:url options: YYWebImageOptionSetImageWithFadeAnimation];
+
     }
     else
     cell.songImageView.image = nil;

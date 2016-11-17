@@ -13,7 +13,7 @@
 @property NSMutableArray *searchResults;
 @property (strong, nonatomic) UISearchController *searchController;
 @property (strong,nonatomic) CellConfigManager * cellConfig;
-
+@property (strong,nonatomic) ActivityIndicatorManager *indicator;
 //@property (strong, nonatomic) SPSong *song;
 @property (strong, nonatomic) SPTrack *track;
 
@@ -22,6 +22,10 @@
 @implementation TrackSearchTableViewController
 
 - (void)viewDidLoad {
+    
+    self.indicator  = [[ActivityIndicatorManager alloc]initWithView:self.view];
+    
+    
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadDataSource:)
@@ -72,6 +76,7 @@
     NSString *searchString = searchController.searchBar.text;
     SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
     
+    [self.indicator startAnimating];
     [sharedManager searchTrackWithText:searchString];
    
 }
@@ -84,6 +89,7 @@
 
 - (void) reloadDataSource:(NSNotification *) notification
 {
+    [self.indicator stopAnimating];
     self.searchResults =  notification.userInfo[@"list"];
     [self.tableView reloadData];
     

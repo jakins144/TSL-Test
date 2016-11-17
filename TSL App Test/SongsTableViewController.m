@@ -13,6 +13,7 @@
 @property (strong, nonatomic) SPPlaylistTrack *song;
 
 @property (strong,nonatomic) CellConfigManager * cellConfig;
+@property (strong,nonatomic) ActivityIndicatorManager *indicator;
 
 @end
 
@@ -20,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.indicator  = [[ActivityIndicatorManager alloc]initWithView:self.view];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadDataSource:)
                                                  name:@"songlistSet"
@@ -36,7 +39,7 @@
     
     NSDictionary *tracksDict = self.playlist.tracks;
     
-    
+    [self.indicator startAnimating];
     SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
     
     [sharedManager getTracksWithURL:tracksDict[@"href"]];
@@ -118,7 +121,7 @@
 {
     NSArray* listArray = notification.userInfo[@"list"];
     self.listOfSongsArray =  listArray.mutableCopy;
-    
+    [self.indicator stopAnimating];
     [self.tableView reloadData];
 }
 
