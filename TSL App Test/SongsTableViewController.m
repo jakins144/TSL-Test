@@ -29,16 +29,13 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     
-    NSDictionary *tracksDict = self.playListInfoDict[@"tracks"];
+    NSDictionary *tracksDict = self.playlist.tracks;
     
     
     SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
     
     [sharedManager getTracksWithURL:tracksDict[@"href"]];
-    
-    NSLog(@"%@", tracksDict.description);
-    
-    NSLog(@"");
+
 }
 
 
@@ -65,22 +62,27 @@
     
     
     
-    NSDictionary *songTopDict = self.listOfSongsArray[indexPath.row];
+   // NSDictionary *songTopDict = self.listOfSongsArray[indexPath.row];
     
-    NSDictionary *songDict = songTopDict[@"track"];
+    self.song = [SPSong itemFromJSONDictionary:self.listOfSongsArray[indexPath.row]];
     
-    NSDictionary *songAlbumDict = songDict[@"album"];
+    NSLog(@"%@", self.song.description);
     
-    NSArray *songArtistsTopArray = songDict[@"artists"];
+  //  self.track = self.song.track;
+    //NSDictionary *songDict = songTopDict[@"track"];
     
-    NSDictionary *songArtistsDict = songArtistsTopArray[0];
+   // NSDictionary *songAlbumDict = songDict[@"album"];
+    
+   // NSArray *songArtistsTopArray = self.song.track.artists;
+    
+    NSDictionary *songArtistsDict = self.song.track.artists[0];
     
     
     
     
     cell.songImageView.image = nil;
     
-    NSArray *imageArray = songAlbumDict[@"images"];
+    NSArray *imageArray = self.song.track.album[@"images"];
     
     if ([imageArray count] > 0) {
         NSDictionary *imageDict = imageArray[0];
@@ -105,11 +107,11 @@
     else
         cell.songImageView.image = nil;
     
+    cell.songTitleLabel.text = self.song.track.trackName;
     
+    //cell.songTitleLabel.text = songDict[@"name"];
     
-    cell.songTitleLabel.text = songDict[@"name"];
-    
-    cell.albumTitleLabel.text = [NSString stringWithFormat:@"%@ * %@",songArtistsDict[@"name"], songAlbumDict[@"name"]];
+    cell.albumTitleLabel.text = [NSString stringWithFormat:@"%@ * %@",songArtistsDict[@"name"], self.song.track.album[@"name"]];
     
     
     // Configure the cell...
@@ -122,13 +124,14 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
-        NSDictionary *songTopDict = self.listOfSongsArray[indexPath.row];
+        //NSDictionary *songTopDict = self.listOfSongsArray[indexPath.row];
         
-        NSDictionary *songDict = songTopDict[@"track"];
+        self.song = [SPSong itemFromJSONDictionary:self.listOfSongsArray[indexPath.row]];
+        
+       // NSDictionary *songDict = songTopDict[@"track"];
         NSNumber *positionNumb = [[NSNumber alloc]initWithLong:indexPath.row];
         
-        [sharedManager deleteTrackWtih:songDict[@"uri"] andPlaylistID:self.playListInfoDict[@"id"] andPositon:positionNumb];
-        
+        [sharedManager deleteTrackWtih:self.song.track.uri andPlaylistID:self.playlist.playlistID andPositon:positionNumb];
         
         
         [self.listOfSongsArray removeObjectAtIndex:indexPath.row];
@@ -156,8 +159,6 @@
 
 
 
-
-
 - (void) reloadDataSource:(NSNotification *) notification
 {
     NSArray* listArray = notification.userInfo[@"list"];
@@ -173,7 +174,9 @@
         
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         
-        vc.topSongDict = self.listOfSongsArray[indexPath.row];
+        self.song = [SPSong itemFromJSONDictionary:self.listOfSongsArray[indexPath.row]];
+        
+        vc.track = self.song.track;
         
         
     }

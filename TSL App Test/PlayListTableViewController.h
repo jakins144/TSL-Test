@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "SpotifySingleton.h"
 #import "PlayListTableViewCell.h"
+#import "SPPlaylist.h"
 
 @interface PlayListTableViewController : UITableViewController
 
 @property (strong,nonatomic) NSMutableArray * playListsArray;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
-- (IBAction)createPlaylistAction:(id)sender;
 
 @end

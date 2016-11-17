@@ -27,7 +27,7 @@
              @"collaborative"       : @"collaborative",
              @"images"              : @"images",
              @"externalURLS"        : @"external_urls",
-             @"name"                : @"name",
+             @"name"                : @"name"
              
              };
 }

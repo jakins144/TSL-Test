@@ -84,19 +84,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SongTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    NSDictionary *songDict = self.searchResults[indexPath.row];
+//    NSDictionary *songDict = self.searchResults[indexPath.row];
     
+    self.track = [SPTrack itemFromJSONDictionary:self.searchResults[indexPath.row]];
+//    
+//    
+//    NSDictionary *songAlbumDict = songDict[@"album"];
+//    
+//    NSArray *songArtistsTopArray = songDict[@"artists"];
     
-    NSDictionary *songAlbumDict = songDict[@"album"];
-    
-    NSArray *songArtistsTopArray = songDict[@"artists"];
-    
-    NSDictionary *songArtistsDict = songArtistsTopArray[0];
+    NSDictionary *songArtistsDict = self.track.artists[0];
     
     
     cell.songImageView.image = nil; // or cell.poster.image = [UIImage imageNamed:@"placeholder.png"];
     
-    NSArray *imageArray = songAlbumDict[@"images"];
+    NSArray *imageArray = self.track.album[@"images"];
     
     if ([imageArray count] > 0) {
         NSDictionary *imageDict = imageArray[0];
@@ -121,9 +123,9 @@
     else
         cell.songImageView.image = nil;
     
-    cell.songTitleLabel.text = songDict[@"name"];
+    cell.songTitleLabel.text = self.track.trackName;
     
-    cell.albumTitleLabel.text = [NSString stringWithFormat:@"%@ * %@",songArtistsDict[@"name"], songAlbumDict[@"name"]];
+    cell.albumTitleLabel.text = [NSString stringWithFormat:@"%@ * %@",songArtistsDict[@"name"], self.track.album[@"name"]];
     
     
     return cell;
@@ -138,7 +140,7 @@
         
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         
-        vc.topSongDict = self.searchResults[indexPath.row];
+        vc.track = [SPTrack itemFromJSONDictionary:self.searchResults[indexPath.row]];
         vc.fromSearchScreen = YES;
         
     }

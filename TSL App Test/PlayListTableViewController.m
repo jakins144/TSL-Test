@@ -11,6 +11,11 @@
 
 @interface PlayListTableViewController ()
 
+
+@property (strong,nonatomic) SPPlaylist *playlist;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
+
+- (IBAction)createPlaylistAction:(id)sender;
 @end
 
 @implementation PlayListTableViewController
@@ -21,6 +26,8 @@
                                              selector:@selector(reloadDataSource:)
                                                  name:@"playlistSet"
                                                object:nil];
+    
+    //self.playlist = [[SPPlaylist alloc]init];
     
 }
 
@@ -61,14 +68,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PlayListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    NSDictionary *playListDict = self.playListsArray[indexPath.row];
+   self.playlist = self.playListsArray[indexPath.row];
     
-    cell.playListTitleLabel.text = playListDict[@"name"];
+    self.playlist = [SPPlaylist itemFromJSONDictionary:self.playListsArray[indexPath.row]];
+    
+   // NSLog(@"%@", self.playlist.description);
+    
+    cell.playListTitleLabel.text = self.playlist.name;
     
     
     cell.playListImageView.image = nil;
-    NSArray *imageArray = playListDict[@"images"];
     
+    NSArray *imageArray = self.playlist.images;
     
     if ([imageArray count] > 0) {
         NSDictionary *imageDict = imageArray[0];
@@ -94,7 +105,7 @@
         cell.playListImageView.image = nil;
     
     
-    NSDictionary *tracksDict = playListDict[@"tracks"];
+    NSDictionary *tracksDict = self.playlist.tracks;
     NSNumber* tracksTotal = tracksDict[@"total"];
     
     
@@ -124,7 +135,8 @@
         
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         
-        vc.playListInfoDict = self.playListsArray[indexPath.row];
+        vc.playlist =[SPPlaylist itemFromJSONDictionary:self.playListsArray[indexPath.row]];
+
         
         
     }

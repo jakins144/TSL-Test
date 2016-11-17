@@ -9,6 +9,34 @@
 #import "SongDetailViewController.h"
 
 @interface SongDetailViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *trackNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *addToNewPlayListButton;
+@property (weak, nonatomic) IBOutlet UIButton *addToExistingPlaylistButton;
+
+
+
+
+@property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;
+
+
+
+
+//@property (strong, nonatomic) NSDictionary *topSongDict;
+
+@property (weak, nonatomic) IBOutlet UIImageView *songDetailImageView;
+
+@property (weak, nonatomic) IBOutlet UIButton *addToPlayList;
+
+//@property (strong, nonatomic) NSString* trackURI;
+
+//@property (strong, nonatomic) NSString* previewURL;
+@property (strong, nonatomic) AVAudioPlayer *audioPlayer;
+
+- (IBAction)previewButtonAction:(id)sender;
+- (IBAction)closeButtonAction:(id)sender;
+
+- (IBAction)addToPlayListAction:(id)sender;
+
 
 @end
 
@@ -24,28 +52,24 @@
                                              selector:@selector(dismissChoice:)
                                                  name:@"songAdded"
                                                object:nil];
-    if (self.topSongDict) {
-        NSDictionary *songDict = nil;
-        if (self.fromSearchScreen) {
-            songDict = self.topSongDict;
-        }
-        else
-            songDict = self.topSongDict[@"track"];
+    if (self.track) {
+//        NSDictionary *songDict = nil;
+//        if (self.fromSearchScreen) {
+//            songDict = self.topSongDict;
+//        }
+//        else
+//            songDict = self.topSongDict[@"track"];
         
-        self.trackURI = songDict[@"uri"];
+      //  self.trackURI = songDict[@"uri"];
         
-        self.previewURL = songDict[@"preview_url"];
-       
-        NSDictionary *songAlbumDict = songDict[@"album"];
+   
+      //  NSDictionary *songAlbumDict = songDict[@"album"];
 
         
-        
-        NSArray *songArtistsTopArray = songDict[@"artists"];
-        
-        NSDictionary *songArtistsDict = songArtistsTopArray[0];
+        NSDictionary *songArtistsDict = self.track.artists[0];
         
         
-        NSArray *imageArray = songAlbumDict[@"images"];
+        NSArray *imageArray = self.track.album[@"images"];
         
         if (imageArray.count > 0) {
             NSDictionary *imageDict = imageArray[0];
@@ -57,10 +81,9 @@
             self.songDetailImageView.image = [UIImage imageWithData:imageData];
         }
         
-        self.trackNameLabel.text = songDict[@"name"];
+        self.trackNameLabel.text = self.track.trackName;
         self.artistNameLabel.text = songArtistsDict[@"name"];
-        
-        
+    
         
     }
 }
@@ -80,7 +103,7 @@
         ChoosePlaylistViewController *vc = [segue destinationViewController];
         
         
-        vc.trackURI = self.trackURI;
+        vc.trackURI = self.track.uri;
         
         
     }
@@ -95,20 +118,15 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)previewButtonAction:(id)sender {
-    if ( ![self.previewURL isEqual:[NSNull null]]) {
-        [self playAudioFromURL:self.previewURL];
+    if ( ![self.track.previewURL isEqual:[NSNull null]]) {
+        [self playAudioFromURL:self.track.previewURL];
     }
     
 }
 
 - (IBAction)addToPlayListAction:(id)sender {
     
-    NSDictionary *songDict = nil;
-    if (self.fromSearchScreen) {
-        songDict = self.topSongDict;
-    }
-    else
-        songDict = self.topSongDict[@"track"];
+   
     
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Create Playlist"
                                                                               message: @"Input the Playlist title"
@@ -116,7 +134,7 @@
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.placeholder = @"new play list title here";
         textField.textColor = [UIColor blueColor];
-        textField.text = songDict[@"name"];
+        textField.text = self.track.trackName;
         textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         textField.borderStyle = UITextBorderStyleRoundedRect;
     }];
@@ -127,8 +145,7 @@
         
         SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
         
-        [sharedManager createPlaylistWithName:playlistTitleField.text andAddSong:self.trackURI];
-        
+        [sharedManager createPlaylistWithName:playlistTitleField.text andAddSong:self.track.uri];
         
         
     }]];

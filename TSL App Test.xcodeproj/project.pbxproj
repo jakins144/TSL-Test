@@ -24,6 +24,10 @@
 		EB443EB51DD12401003CA241 /* TSL_App_TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB443EB41DD12401003CA241 /* TSL_App_TestTests.m */; };
 		EB443EC01DD12401003CA241 /* TSL_App_TestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB443EBF1DD12401003CA241 /* TSL_App_TestUITests.m */; };
 		EB443ED01DD12D2A003CA241 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = EB443ECF1DD12D2A003CA241 /* Podfile */; };
+		EB65E7301DDBFFAC001D4B19 /* SPBaseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EB65E72F1DDBFFAC001D4B19 /* SPBaseItem.m */; };
+		EB65E7331DDC048B001D4B19 /* SPPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = EB65E7321DDC048B001D4B19 /* SPPlaylist.m */; };
+		EB65E7361DDC237E001D4B19 /* SPSong.m in Sources */ = {isa = PBXBuildFile; fileRef = EB65E7351DDC237E001D4B19 /* SPSong.m */; };
+		EB65E73A1DDCB72B001D4B19 /* SPTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = EB65E7391DDCB72B001D4B19 /* SPTrack.m */; };
 		EBD05C371DD514A50075C4C7 /* SongTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD05C361DD514A50075C4C7 /* SongTableViewCell.m */; };
 		EBD05C3A1DD5150F0075C4C7 /* SongsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD05C391DD5150F0075C4C7 /* SongsTableViewController.m */; };
 		EBD05C3D1DD557A50075C4C7 /* SongDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD05C3C1DD557A50075C4C7 /* SongDetailViewController.m */; };
@@ -80,6 +84,14 @@
 		EB443EBF1DD12401003CA241 /* TSL_App_TestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSL_App_TestUITests.m; sourceTree = "<group>"; };
 		EB443EC11DD12402003CA241 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB443ECF1DD12D2A003CA241 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		EB65E72E1DDBFFAC001D4B19 /* SPBaseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPBaseItem.h; sourceTree = "<group>"; };
+		EB65E72F1DDBFFAC001D4B19 /* SPBaseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBaseItem.m; sourceTree = "<group>"; };
+		EB65E7311DDC048B001D4B19 /* SPPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPlaylist.h; sourceTree = "<group>"; };
+		EB65E7321DDC048B001D4B19 /* SPPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPlaylist.m; sourceTree = "<group>"; };
+		EB65E7341DDC237E001D4B19 /* SPSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSong.h; sourceTree = "<group>"; };
+		EB65E7351DDC237E001D4B19 /* SPSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSong.m; sourceTree = "<group>"; };
+		EB65E7381DDCB72B001D4B19 /* SPTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTrack.h; sourceTree = "<group>"; };
+		EB65E7391DDCB72B001D4B19 /* SPTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTrack.m; sourceTree = "<group>"; };
 		EBB30C031DD3C92E00997649 /* TSL App Test-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TSL App Test-Bridging-Header.h"; sourceTree = "<group>"; };
 		EBD05C351DD514A50075C4C7 /* SongTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongTableViewCell.h; sourceTree = "<group>"; };
 		EBD05C361DD514A50075C4C7 /* SongTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongTableViewCell.m; sourceTree = "<group>"; };
@@ -170,6 +182,7 @@
 		EB443E991DD12401003CA241 /* TSL App Test */ = {
 			isa = PBXGroup;
 			children = (
+				EB65E7371DDC2399001D4B19 /* Model Classes */,
 				EB443E9D1DD12401003CA241 /* AppDelegate.h */,
 				EB443E9E1DD12401003CA241 /* AppDelegate.m */,
 				EB443EA11DD12401003CA241 /* ViewController.m */,
@@ -224,6 +237,21 @@
 				EB443EC11DD12402003CA241 /* Info.plist */,
 			);
 			path = "TSL App TestUITests";
+			sourceTree = "<group>";
+		};
+		EB65E7371DDC2399001D4B19 /* Model Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EB65E72E1DDBFFAC001D4B19 /* SPBaseItem.h */,
+				EB65E72F1DDBFFAC001D4B19 /* SPBaseItem.m */,
+				EB65E7341DDC237E001D4B19 /* SPSong.h */,
+				EB65E7351DDC237E001D4B19 /* SPSong.m */,
+				EB65E7311DDC048B001D4B19 /* SPPlaylist.h */,
+				EB65E7321DDC048B001D4B19 /* SPPlaylist.m */,
+				EB65E7381DDCB72B001D4B19 /* SPTrack.h */,
+				EB65E7391DDCB72B001D4B19 /* SPTrack.m */,
+			);
+			name = "Model Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,6 +443,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB65E7361DDC237E001D4B19 /* SPSong.m in Sources */,
+				EB65E7331DDC048B001D4B19 /* SPPlaylist.m in Sources */,
 				EB2015061DD2592C00F5547A /* Constants.m in Sources */,
 				EB443EA21DD12401003CA241 /* ViewController.m in Sources */,
 				EB443E9F1DD12401003CA241 /* AppDelegate.m in Sources */,
@@ -425,8 +455,10 @@
 				EBD05C371DD514A50075C4C7 /* SongTableViewCell.m in Sources */,
 				EB275BBA1DD5CC0B00C01216 /* ChoosePlaylistViewController.m in Sources */,
 				EB1C01831DD4D0B4009A3924 /* PlayListTableViewController.m in Sources */,
+				EB65E73A1DDCB72B001D4B19 /* SPTrack.m in Sources */,
 				EB0FC7301DD3206E0085F828 /* SpotifySingleton.m in Sources */,
 				EB275BB71DD596A300C01216 /* TrackSearchTableViewController.m in Sources */,
+				EB65E7301DDBFFAC001D4B19 /* SPBaseItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@
 @interface SPPlaylist : SPBaseItem
 
 @property (strong, nonatomic) NSString *playlistID;
-@property (strong, nonatomic) NSNumber *plublic;
+@property (strong, nonatomic) NSNumber *public;
 @property (strong, nonatomic) NSString *snapshotID;
 
 @property (strong, nonatomic) NSDictionary *tracks;
@@ -19,7 +19,7 @@
 @property (strong, nonatomic) NSString *href;
 @property (strong, nonatomic) NSDictionary *owner;
 @property (strong, nonatomic) NSString *type;
-@property (strong, nonatomic) NSString *collaborative;
+@property (strong, nonatomic) NSNumber *collaborative;
 @property (strong, nonatomic) NSArray *images;
 @property (strong, nonatomic) NSDictionary *externalURLS;
 @property (strong, nonatomic) NSString *name;
