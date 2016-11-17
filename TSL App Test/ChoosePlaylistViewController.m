@@ -16,8 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   //  self.indicator  = [[ActivityIndicatorManager alloc]initWithView:self.view];
-    // Do any additional setup after loading the view.
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(dismissChoice:)
                                                  name:@"songAdded"
@@ -30,6 +29,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Table view methods
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
@@ -41,6 +42,8 @@
     [sharedManager addToPlayListWithTrackURI:self.trackURI andPlaylistID:playListInfoDict[@"id"]];
     
 }
+
+#pragma mark - assisting custom methods
 
 - (void) dismissChoice:(NSNotification *) notification
 {

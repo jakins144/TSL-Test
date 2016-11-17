@@ -15,6 +15,8 @@
 
 @implementation CellConfigManager
 
+#pragma mark - cell configuration method used in PlayListTableViewController
+
 -(void)configPlayListCellWithCell:(PlayListTableViewCell*)cell andPlayListDict:(NSDictionary*)playListDict andTableView:(UITableView*)theTableView andIndexPath:(NSIndexPath*)theIndexPath
 {
  
@@ -45,18 +47,13 @@
     cell.songAmountLabel.text = [NSString stringWithFormat:@"%ld Songs", (long)[tracksTotal integerValue]];
 }
 
+#pragma mark - cell configuration method used in SongTableViewController
+
 -(void)configSongCellWithCell:(SongTableViewCell*)cell andSongDict:(NSDictionary*)songDict andTableView:(UITableView*)theTableView andIndexPath:(NSIndexPath*)theIndexPath
 {
     self.song = [SPPlaylistTrack itemFromJSONDictionary:songDict];
     
     NSLog(@"%@", self.song.description);
-    
-    //  self.track = self.song.track;
-    //NSDictionary *songDict = songTopDict[@"track"];
-    
-    // NSDictionary *songAlbumDict = songDict[@"album"];
-    
-    // NSArray *songArtistsTopArray = self.song.track.artists;
     
     NSDictionary *songArtistsDict = self.song.track.artists[0];
     
@@ -81,6 +78,7 @@
     cell.albumTitleLabel.text = [NSString stringWithFormat:@"%@ * %@",songArtistsDict[@"name"], self.song.track.album[@"name"]];
 }
 
+#pragma mark - cell configuration method used in TrackSearchTableViewController
 -(void)configSongCellForSearchResultsWithCell:(SongTableViewCell*)cell andTrackDict:(NSDictionary*)trackDict andTableView:(UITableView*)theTableView andIndexPath:(NSIndexPath*)theIndexPath
 {
     

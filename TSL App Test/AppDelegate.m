@@ -29,10 +29,11 @@
         SpotifySingleton *sharedManager = [SpotifySingleton sharedManager];
         [sharedManager requestTokenWithDict:[self parseQueryString:[url absoluteString]].mutableCopy];
         
-        
     }
     return YES;
 }
+
+#pragma mark - application delegate boiler plate methods
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -55,6 +56,8 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - assisting custom methods
 
 - (NSDictionary *)parseQueryString:(NSString *)query {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];

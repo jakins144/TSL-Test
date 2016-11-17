@@ -33,6 +33,8 @@
     return self;
 }
 
+#pragma mark - spotify network methods
+
 -(void)requestTokenWithDict:(NSMutableDictionary*)codeDict
 {
     NSString *codeForToken = [codeDict objectForKey:@"code"];
@@ -291,6 +293,5 @@
     }] resume];
     
 }
-
 
 @end

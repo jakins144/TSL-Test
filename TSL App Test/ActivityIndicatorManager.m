@@ -30,6 +30,8 @@
     return self;
 }
 
+#pragma mark - assisting custom methods
+
 -(void)startAnimating
 {
     [self.indicator startAnimating];

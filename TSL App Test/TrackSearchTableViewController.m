@@ -66,7 +66,15 @@
     return 83;
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    SongTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    [self.cellConfig configSongCellForSearchResultsWithCell:cell andTrackDict:self.searchResults[indexPath.row] andTableView:tableView andIndexPath:indexPath];
+    
+    return cell;
+}
 
+#pragma mark UISearch related methods
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
@@ -83,6 +91,7 @@
     [self updateSearchResultsForSearchController:self.searchController];
 }
 
+#pragma mark - assisting custom methods
 
 - (void) reloadDataSource:(NSNotification *) notification
 {
@@ -92,16 +101,7 @@
     
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    SongTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-    [self.cellConfig configSongCellForSearchResultsWithCell:cell andTrackDict:self.searchResults[indexPath.row] andTableView:tableView andIndexPath:indexPath];
-
-    return cell;
-}
-
-
+#pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toArtistDetail"])

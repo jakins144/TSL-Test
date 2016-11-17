@@ -107,6 +107,8 @@
     return YES;
 }
 
+#pragma mark - assisting custom methods
+
 - (void) reloadDataSource:(NSNotification *) notification
 {
     NSArray* listArray = notification.userInfo[@"list"];
@@ -114,6 +116,8 @@
     [self.indicator stopAnimating];
     [self.tableView reloadData];
 }
+
+#pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toArtistDetail"])

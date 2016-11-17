@@ -59,12 +59,6 @@
     return [self.playListsArray count];
 }
 
-- (void) reloadDataSource:(NSNotification *) notification
-{
-    self.playListsArray =  notification.userInfo[@"list"];
-    [self.indicator stopAnimating];
-    [self.tableView reloadData];
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PlayListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
@@ -92,6 +86,8 @@
 
 }
 
+#pragma mark - IBActions
+
 - (IBAction)createPlaylistAction:(id)sender {
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Create Playlist"
                                                                               message: @"Input the Playlist title"
@@ -113,5 +109,14 @@
         
     }]];
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+#pragma mark - assisting custom methods
+
+- (void) reloadDataSource:(NSNotification *) notification
+{
+    self.playListsArray =  notification.userInfo[@"list"];
+    [self.indicator stopAnimating];
+    [self.tableView reloadData];
 }
 @end

@@ -72,10 +72,8 @@
     }
 }
 
-- (void) dismissChoice:(NSNotification *) notification
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+
+#pragma mark - IBActions
 
 - (IBAction)closeButtonAction:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -112,6 +110,8 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+#pragma mark - assisting custom methods
+
 -(void)playAudioFromURL:(NSString*)songURL
 {
     NSString* resourcePath = songURL; //your url
@@ -128,5 +128,10 @@
     else
         [self.audioPlayer play];
     
+}
+
+- (void) dismissChoice:(NSNotification *) notification
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
