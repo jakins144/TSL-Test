@@ -26,10 +26,7 @@
     
     self.indicator  = [[ActivityIndicatorManager alloc]initWithView:self.view];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadDataSource:)
-                                                 name:@"playlistSet"
-                                               object:nil];
+    
     
     //self.playlist = [[SPPlaylist alloc]init];
     self.cellConfig =[[CellConfigManager alloc]init];
@@ -37,9 +34,20 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadDataSource:)
+                                                 name:@"playlistSet"
+                                               object:nil];
+    
     SpotifyServiceManager *sharedManager = [SpotifyServiceManager sharedManager];
     [self.indicator startAnimating];
     [sharedManager requestRefreshTokenAndGetPlaylist];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
 }
 
 - (void)didReceiveMemoryWarning {

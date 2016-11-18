@@ -168,6 +168,9 @@
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"songlistSet"
+         object:self userInfo:nil];
     }];
 }
 

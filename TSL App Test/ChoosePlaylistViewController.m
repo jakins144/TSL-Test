@@ -17,11 +17,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(dismissChoice:)
                                                  name:@"songAdded"
                                                object:nil];
     
+}
+- (void)viewWillDisappear:(BOOL)animated{
+   
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+  
 }
 
 - (void)didReceiveMemoryWarning {

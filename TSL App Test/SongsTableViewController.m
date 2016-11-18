@@ -23,10 +23,7 @@
     [super viewDidLoad];
     
     self.indicator  = [[ActivityIndicatorManager alloc]initWithView:self.view];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadDataSource:)
-                                                 name:@"songlistSet"
-                                               object:nil];
+    
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
@@ -36,6 +33,10 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadDataSource:)
+                                                 name:@"songlistSet"
+                                               object:nil];
     
     NSDictionary *tracksDict = self.playlist.tracks;
     
@@ -44,6 +45,12 @@
     
     [sharedManager getTracksWithURL:tracksDict[@"href"]];
 
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -112,9 +119,13 @@
 - (void) reloadDataSource:(NSNotification *) notification
 {
     NSArray* listArray = notification.userInfo[@"list"];
-    self.listOfSongsArray =  listArray.mutableCopy;
     [self.indicator stopAnimating];
-    [self.tableView reloadData];
+    if (listArray != nil) {
+        self.listOfSongsArray =  listArray.mutableCopy;
+        
+        [self.tableView reloadData];
+    }
+   
 }
 
 #pragma mark - Navigation

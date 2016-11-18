@@ -26,10 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(dismissChoice:)
-                                                 name:@"songAdded"
-                                               object:nil];
+
     if (self.track) {
 
         NSDictionary *songArtistsDict = self.track.artists[0];
@@ -52,6 +49,21 @@
         
     }
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dismissChoice:)
+                                                 name:@"songAdded"
+                                               object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

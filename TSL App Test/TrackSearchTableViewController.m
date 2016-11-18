@@ -25,10 +25,7 @@
     self.indicator  = [[ActivityIndicatorManager alloc]initWithView:self.view];
     
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadDataSource:)
-                                                 name:@"searchSet"
-                                               object:nil];
+    
     
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
@@ -43,6 +40,21 @@
     self.cellConfig =[[CellConfigManager alloc]init];
   
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadDataSource:)
+                                                 name:@"searchSet"
+                                               object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
