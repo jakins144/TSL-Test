@@ -1,5 +1,5 @@
 # TSL-Test
-iOS app based on the spotify assignment.
+iOS app based on the TSL Spotify assignment.
 
 # Project Title
 
