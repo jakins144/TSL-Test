@@ -10,9 +10,6 @@
 
 @implementation SPPlaylist
 
-
-
-
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 
     return @{
@@ -31,7 +28,6 @@
              
              };
 }
-
 
 
 @end

@@ -20,11 +20,9 @@
              };
 }
 
-
 +(NSValueTransformer*)promotionMessageJSONTransformer {
     return [MTLJSONAdapter dictionaryTransformerWithModelClass:SPTrack.class];
 }
-
 
 
 @end

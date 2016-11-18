@@ -12,7 +12,6 @@
 @property (strong, nonatomic) NSString *trackID;
 @property (strong, nonatomic) NSString *trackName;
 @property (strong, nonatomic) NSDictionary *album;
-
 @property (strong, nonatomic) NSNumber *discNumber;
 @property (strong, nonatomic) NSNumber *trackNumber;
 @property (strong, nonatomic) NSArray *artists;

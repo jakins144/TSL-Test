@@ -13,7 +13,6 @@
 @property (strong, nonatomic) NSString *playlistID;
 @property (strong, nonatomic) NSNumber *public;
 @property (strong, nonatomic) NSString *snapshotID;
-
 @property (strong, nonatomic) NSDictionary *tracks;
 @property (strong, nonatomic) NSString *uri;
 @property (strong, nonatomic) NSString *href;

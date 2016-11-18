@@ -45,11 +45,11 @@
         
         self.accessToken = responseObject[@"access_token"];
         self.refreshToken = responseObject[@"refresh_token"];
-    
+        
         [[NSNotificationCenter defaultCenter]
          postNotificationName:@"TokensSet"
          object:self];
-    
+        
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -58,12 +58,12 @@
 -(void)requestRefreshTokenAndGetPlaylist
 {
     NSString *urlString = [NSString stringWithFormat:@"%@api/token?grant_type=refresh_token&refresh_token=%@&client_id=%@&client_secret=%@&redirect_uri=tsl-app-test://", spotifyAccountsBaseURL, self.refreshToken, clientID, clientSecret];
-
+    
     [self.AFHTTPManager POST:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
         self.accessToken = responseObject[@"access_token"];
-     
+        
         [self retrievePlayLists];
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -131,7 +131,7 @@
     searchText = [searchText stringByReplacingOccurrencesOfString:@" " withString: @"+"];
     searchText = [searchText stringByReplacingOccurrencesOfString:@"\"" withString: @"\%22"];
     NSString *urlString = [NSString stringWithFormat:@"%@v1/search/?q=%@&type=track&access_token=%@", spotifyBaseURL, searchText , self.accessToken];
-
+    
     [self.AFHTTPManager GET:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
@@ -147,6 +147,9 @@
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"searchSet"
+         object:self userInfo:nil];
     }];
     
 }
@@ -178,12 +181,12 @@
 -(void)addToPlayListWithTrackURI:(NSString*)stringURI andPlaylistID:(NSString*)playListID
 {
     NSString *urlString = [NSString stringWithFormat:@"%@v1/users/%@/playlists/%@/tracks?uris=%@&access_token=%@", spotifyBaseURL, self.userID, playListID, stringURI, self.accessToken];
-
+    
     [self.AFHTTPManager POST:urlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
         self.accessToken = responseObject[@"access_token"];
-
+        
         [[NSNotificationCenter defaultCenter]
          postNotificationName:@"songAdded"
          object:self];
@@ -278,7 +281,7 @@
     
     req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
     [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-
+    
     [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
     
     [[self.AFURLManager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {

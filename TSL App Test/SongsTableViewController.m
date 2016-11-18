@@ -11,7 +11,6 @@
 @interface SongsTableViewController ()
 
 @property (strong, nonatomic) SPPlaylistTrack *song;
-
 @property (strong,nonatomic) CellConfigManager * cellConfig;
 @property (strong,nonatomic) ActivityIndicatorManager *indicator;
 
@@ -23,7 +22,6 @@
     [super viewDidLoad];
     
     self.indicator  = [[ActivityIndicatorManager alloc]initWithView:self.view];
-    
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     

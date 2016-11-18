@@ -108,8 +108,11 @@
 - (void) reloadDataSource:(NSNotification *) notification
 {
     [self.indicator stopAnimating];
-    self.searchResults =  notification.userInfo[@"list"];
-    [self.tableView reloadData];
+    
+    if (notification.userInfo[@"list"] != nil) {
+        self.searchResults =  notification.userInfo[@"list"];
+        [self.tableView reloadData];
+    }
     
 }
 

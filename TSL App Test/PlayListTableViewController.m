@@ -11,7 +11,6 @@
 
 @interface PlayListTableViewController ()
 
-//@property (strong,nonatomic) SPPlaylist *playlist;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
 @property (strong,nonatomic) CellConfigManager * cellConfig;
 @property (strong,nonatomic) ActivityIndicatorManager *indicator;
@@ -26,9 +25,6 @@
     
     self.indicator  = [[ActivityIndicatorManager alloc]initWithView:self.view];
     
-    
-    
-    //self.playlist = [[SPPlaylist alloc]init];
     self.cellConfig =[[CellConfigManager alloc]init];
 }
 
@@ -72,7 +68,7 @@
     PlayListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     [self.cellConfig configPlayListCellWithCell:cell andPlayListDict:self.playListsArray[indexPath.row] andTableView:tableView andIndexPath:indexPath];
-
+    
     return cell;
 }
 
@@ -89,9 +85,9 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         
         vc.playlist =[SPPlaylist itemFromJSONDictionary:self.playListsArray[indexPath.row]];
-
+        
     }
-
+    
 }
 
 #pragma mark - IBActions
