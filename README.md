@@ -1,5 +1,5 @@
-# TSL-Test
-iOS app based on the TSL Spotify assignment.
+# Sample App
+iOS sample app using Spotify Web API.
 
 # About Project 
 
